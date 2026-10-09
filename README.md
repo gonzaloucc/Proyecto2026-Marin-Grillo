@@ -30,7 +30,11 @@ El sitio web cuenta con las siguientes secciones:
   - Carta de tortas y porciones artesanales.
   - Tortas Atelier (línea a pedido para bodas, cumpleaños y eventos).
 - **Calculadora de Pedido (Módulo Interactivo):** Permite al usuario seleccionar productos, ingresar cantidades deseadas, sumar adicionales y calcular el total estimado.
-- **Ubicación y Horarios:** Información detallada sobre cómo llegar al local y franjas horarias de atención.
+- **Ubicación y Horarios:**
+  - **Dirección:** Bv. Elías Yofre 1243, Barrio Jardín, X5014 Córdoba, Argentina ([Ver en Google Maps](https://maps.app.goo.gl/PPMGWtvZG7nSE82K6)).
+  - **Horarios de Atención:**
+    - **Martes a Domingo:** 8:30 a 14:00 hs y 16:00 a 21:00 hs.
+    - **Lunes:** 16:00 a 21:00 hs.
 - **Pie de Página (Footer):** Enlaces directos a redes sociales (Instagram, TikTok) y canal de atención por WhatsApp.
 
 ---
