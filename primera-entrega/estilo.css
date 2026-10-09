@@ -1,0 +1,772 @@
+/* --------------------------------------------------------------------------
+   1. VARIABLES DE DISENO (:root)
+   Paleta inspirada en el mockup de Canva (tonos calidos, crema y cafe)
+   -------------------------------------------------------------------------- */
+:root {
+    --color-fondo: #fffaf5;
+    --color-arena: #f5ebe5;
+    --color-crema: #f2e5dc;
+    --color-borde: #e8d7ce;
+    --color-texto: #634843;
+    --color-chocolate: #38201e;
+    --color-primario: #6e3938;
+    --color-primario-hover: #542c2b;
+    --color-kicker: #8a5a50;
+    --color-blanco: #ffffff;
+    --color-error-fondo: #fdeee9;
+    --color-error-texto: #a3382c;
+
+    --fuente-principal: 'Alegreya', Georgia, serif;
+
+    --sombra-suave: 0 4px 14px rgba(56, 32, 30, 0.08);
+    --sombra-media: 0 8px 24px rgba(56, 32, 30, 0.12);
+    --radio-tarjeta: 16px;
+    --radio-boton: 24px;
+    --transicion: all 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. SELECTORES POR TAG (Reset y reglas base)
+   -------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transicion);
+}
+
+ul {
+    list-style: none;
+}
+
+input,
+select,
+button {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+iframe {
+    border: none;
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   3. ESTRUCTURA Y CONTENEDORES (Clases generales)
+   -------------------------------------------------------------------------- */
+.contenedor {
+    width: 90%;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+.seccion {
+    padding: 5rem 0;
+}
+
+.seccion-arena {
+    background-color: var(--color-arena);
+}
+
+.seccion-crema {
+    background-color: var(--color-crema);
+}
+
+.seccion-vino {
+    background-color: var(--color-chocolate);
+    color: var(--color-fondo);
+}
+
+.dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Tipografia de encabezados y etiquetas */
+.antetitulo {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-kicker);
+    margin-bottom: 0.5rem;
+}
+
+.antetitulo-claro {
+    color: #e7d1c5;
+}
+
+.titulo-seccion {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--color-chocolate);
+    line-height: 1.25;
+    margin-bottom: 0.8rem;
+}
+
+.titulo-claro {
+    color: var(--color-fondo);
+}
+
+.texto-seccion {
+    font-size: 1.1rem;
+    color: var(--color-texto);
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.nota {
+    font-size: 0.95rem;
+    color: var(--color-kicker);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.separador {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 250, 245, 0.2);
+    margin: 1.5rem 0;
+}
+
+.separador-oscuro {
+    background-color: var(--color-borde);
+}
+
+/* Botones */
+.boton {
+    display: inline-block;
+    padding: 0.75rem 1.6rem;
+    border-radius: var(--radio-boton);
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: var(--transicion);
+}
+
+.boton-primario {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.boton-primario:hover {
+    background-color: var(--color-primario-hover);
+    transform: translateY(-2px);
+}
+
+.boton-claro {
+    background-color: var(--color-fondo);
+    color: var(--color-primario);
+}
+
+.boton-claro:hover {
+    background-color: var(--color-blanco);
+    color: var(--color-primario-hover);
+    transform: translateY(-2px);
+}
+
+.boton-contorno {
+    background-color: transparent;
+    color: var(--color-fondo);
+    border-color: rgba(255, 250, 245, 0.6);
+}
+
+.boton-contorno:hover {
+    background-color: rgba(255, 250, 245, 0.15);
+    border-color: var(--color-fondo);
+}
+
+.boton-ancho {
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. CABECERA (HEADER) Y NAVEGACION
+   -------------------------------------------------------------------------- */
+.cabecera {
+    background-color: var(--color-fondo);
+    border-bottom: 1px solid var(--color-borde);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.cabecera-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.marca-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.marca-nombre {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-chocolate);
+}
+
+.navegacion ul {
+    display: flex;
+    gap: 2rem;
+}
+
+.navegacion a {
+    font-weight: 600;
+    color: var(--color-chocolate);
+    padding: 0.4rem 0.2rem;
+    position: relative;
+}
+
+/* Pseudoclase :hover */
+.navegacion a:hover {
+    color: var(--color-primario);
+}
+
+.navegacion a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primario);
+}
+
+.cabecera-boton {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.4rem;
+}
+
+/* Menu toggle para mobile (sin JS requerido) */
+.menu-toggle {
+    display: none;
+}
+
+.menu-boton {
+    display: none;
+    font-weight: 600;
+    color: var(--color-chocolate);
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   5. SECCION PORTADA (HERO)
+   -------------------------------------------------------------------------- */
+#inicio {
+    position: relative;
+    background: linear-gradient(rgba(56, 32, 30, 0.75), rgba(56, 32, 30, 0.85)),
+                url('imagenes/principal_imagen_sec1.png') center/cover no-repeat;
+    color: var(--color-fondo);
+    padding: 7rem 0 6rem 0;
+    text-align: left;
+}
+
+.portada-contenido {
+    max-width: 720px;
+    margin-left: max(5%, calc((100% - 1160px) / 2));
+}
+
+.portada-titulo {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0.6rem 0 1.2rem 0;
+    color: var(--color-fondo);
+}
+
+.portada-texto {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: #f4dfd5;
+    margin-bottom: 2rem;
+}
+
+.portada-botones {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   6. SECCION DE CARTAS (CARDS)
+   -------------------------------------------------------------------------- */
+#cartas .tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.tarjeta {
+    background-color: var(--color-fondo);
+    border-radius: var(--radio-tarjeta);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transicion);
+    border: 1px solid var(--color-borde);
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-media);
+}
+
+.tarjeta-destacada {
+    background-color: #f8eee7;
+}
+
+.tarjeta-imagen {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.tarjeta-cuerpo {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.tarjeta-numero {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-kicker);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.4rem;
+}
+
+.tarjeta-titulo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-chocolate);
+    margin-bottom: 0.6rem;
+}
+
+.tarjeta-texto {
+    font-size: 1rem;
+    color: var(--color-texto);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.tarjeta-enlace {
+    font-weight: 600;
+    color: var(--color-primario);
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.tarjeta-enlace:hover {
+    color: var(--color-primario-hover);
+    transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   7. SECCION RESERVAS (FORMULARIO Y PANEL)
+   -------------------------------------------------------------------------- */
+.panel {
+    background-color: var(--color-fondo);
+    border-radius: var(--radio-tarjeta);
+    padding: 2.2rem;
+    box-shadow: var(--sombra-suave);
+    border: 1px solid var(--color-borde);
+}
+
+.panel-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.campo label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-chocolate);
+}
+
+.campos-fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.campo input,
+.campo select {
+    padding: 0.65rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-chocolate);
+    transition: var(--transicion);
+}
+
+/* Pseudoclase :focus */
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(110, 57, 56, 0.15);
+    background-color: var(--color-blanco);
+}
+
+.campo-ayuda {
+    font-size: 0.8rem;
+    color: var(--color-kicker);
+}
+
+#boton-reservar {
+    margin-top: 0.5rem;
+}
+
+.panel-resultado {
+    background-color: var(--color-arena);
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--color-primario);
+}
+
+.resultado-texto {
+    font-size: 1rem;
+    color: var(--color-chocolate);
+}
+
+/* --------------------------------------------------------------------------
+   8. SECCION TORTAS ATELIER
+   -------------------------------------------------------------------------- */
+#atelier {
+    overflow: hidden;
+}
+
+.atelier-imagen-marco {
+    border-radius: var(--radio-tarjeta);
+    overflow: hidden;
+    box-shadow: var(--sombra-media);
+}
+
+.atelier-imagen {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    transition: var(--transicion);
+}
+
+.atelier-imagen-marco:hover .atelier-imagen {
+    transform: scale(1.03);
+}
+
+.atelier-contenido {
+    padding-left: 1rem;
+}
+
+.atelier-texto {
+    font-size: 1.2rem;
+    color: #f4dfd5;
+    line-height: 1.6;
+}
+
+.atelier-nota {
+    font-size: 1rem;
+    color: #e7d1c5;
+    margin-bottom: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. SECCION VISITANOS Y MAPA
+   -------------------------------------------------------------------------- */
+.panel-visita {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.panel-titulo {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-chocolate);
+}
+
+.panel-texto {
+    color: var(--color-texto);
+    font-size: 1.05rem;
+}
+
+.lista-horarios {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.lista-horarios li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    padding-bottom: 0.3rem;
+    border-bottom: 1px dashed var(--color-borde);
+}
+
+.lista-horarios li span:first-child {
+    font-weight: 600;
+    color: var(--color-chocolate);
+}
+
+.mapa {
+    margin-top: 3rem;
+    border-radius: var(--radio-tarjeta);
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    border: 1px solid var(--color-borde);
+}
+
+.mapa iframe {
+    height: 380px;
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   10. MODAL / DIALOGO DE ERROR (Para validaciones JS)
+   -------------------------------------------------------------------------- */
+.dialogo {
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-tarjeta);
+    padding: 2rem;
+    max-width: 460px;
+    margin: auto;
+    background-color: var(--color-fondo);
+    box-shadow: var(--sombra-media);
+}
+
+.dialogo::backdrop {
+    background-color: rgba(56, 32, 30, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+.dialogo-encabezado {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    margin-bottom: 1.8rem;
+}
+
+.dialogo-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--color-error-fondo);
+    color: var(--color-error-texto);
+    font-size: 1.4rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.dialogo-titulo {
+    font-size: 1.4rem;
+    color: var(--color-chocolate);
+    margin-bottom: 0.3rem;
+}
+
+.dialogo-texto {
+    font-size: 0.95rem;
+    color: var(--color-texto);
+}
+
+/* --------------------------------------------------------------------------
+   11. PIE DE PAGINA (FOOTER)
+   -------------------------------------------------------------------------- */
+.pie {
+    background-color: var(--color-chocolate);
+    color: var(--color-fondo);
+    padding: 3.5rem 0 2rem 0;
+}
+
+.pie-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 250, 245, 0.15);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.pie-marca {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-fondo);
+    margin-bottom: 0.2rem;
+}
+
+.pie-texto {
+    color: #e7d1c5;
+    font-size: 0.95rem;
+}
+
+.redes {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.redes a {
+    color: #f4dfd5;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 250, 245, 0.2);
+}
+
+.redes a:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border-color: var(--color-primario);
+}
+
+.pie-derechos {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #baa39b;
+    margin-top: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. RESPONSIVE DESIGN (MEDIA QUERIES)
+   -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+    .dos-columnas {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .atelier-contenido {
+        padding-left: 0;
+    }
+
+    .portada-titulo {
+        font-size: 2.3rem;
+    }
+
+    .portada-contenido {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .portada-botones {
+        justify-content: center;
+    }
+
+    /* Menu hamburguesa en mobile con el checkbox */
+    .menu-boton {
+        display: block;
+    }
+
+    .cabecera-boton {
+        display: none;
+    }
+
+    .navegacion {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-fondo);
+        border-bottom: 1px solid var(--color-borde);
+        padding: 1.5rem;
+        box-shadow: var(--sombra-media);
+    }
+
+    .menu-toggle:checked ~ .navegacion {
+        display: block;
+    }
+
+    .navegacion ul {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+}
+
+@media (max-width: 520px) {
+    .campos-fila {
+        grid-template-columns: 1fr;
+    }
+
+    .portada-titulo {
+        font-size: 1.9rem;
+    }
+
+    .portada-botones {
+        flex-direction: column;
+    }
+
+    .portada-botones .boton {
+        width: 100%;
+    }
+
+    .pie-contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+

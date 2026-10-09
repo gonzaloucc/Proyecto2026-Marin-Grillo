@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gonzalo Marin, Facundo Grillo">
+    <meta name="description"
+          content="Sitio web oficial de La Pastelier. Cafetería de especialidad, pastelería artesanal y tortas personalizadas de atelier en Córdoba.">
+    <meta name="keywords" content="la pastelier, cafeteria, especialidad, patisserie, tortas, cordoba, cafe, postres, reservas">
+    <title>La Pastelier - Café de Especialidad &amp; Patisserie</title>
+
+    <link rel="icon" type="image/png" href="imagenes/LOGO.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <!-- Cabecera -->
+    <header class="cabecera">
+        <div class="contenedor cabecera-contenido">
+            <a href="index.html" class="marca">
+                <img src="imagenes/LOGO.png" alt="Logo de La Pastelier" class="marca-logo">
+                <h1 class="marca-nombre">La Pastelier</h1>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-boton">Menú</label>
+
+            <nav class="navegacion">
+                <ul>
+                    <li><a href="#cartas">Cartas</a></li>
+                    <li><a href="#reservas">Reservas</a></li>
+                    <li><a href="#atelier">Tortas Atelier</a></li>
+                    <li><a href="#visitanos">Visitanos</a></li>
+                </ul>
+            </nav>
+
+            <a href="#reservas" class="boton boton-primario cabecera-boton">Reservar</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Portada -->
+        <section id="inicio" class="portada">
+            <div class="contenedor portada-contenido">
+                <p class="antetitulo antetitulo-claro">Café · Patisserie · Momentos</p>
+                <h2 class="portada-titulo">Un rincón para saborear despacio.</h2>
+                <p class="portada-texto">Café de especialidad, pastelería artesanal y tortas creadas para celebrar tus
+                    momentos más lindos.</p>
+                <div class="portada-botones">
+                    <a href="#cartas" class="boton boton-claro">Ver las cartas</a>
+                    <a href="#reservas" class="boton boton-contorno">Hacer una reserva</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cartas -->
+        <section id="cartas" class="seccion seccion-arena">
+            <div class="contenedor">
+                <p class="antetitulo">Para cada antojo</p>
+                <h2 class="titulo-seccion">La carta de la casa</h2>
+                <p class="texto-seccion">Una selección pensada para hacer una pausa, compartir y disfrutar de lo hecho a
+                    mano.</p>
+
+                <div class="tarjetas">
+                    <article class="tarjeta">
+                        <img src="imagenes/cafe1.jpeg" alt="Café con arte latte en taza de porcelana floreada"
+                             class="tarjeta-imagen">
+                        <div class="tarjeta-cuerpo">
+                            <p class="tarjeta-numero">01 · Bebidas</p>
+                            <h3 class="tarjeta-titulo">Carta de café</h3>
+                            <p class="tarjeta-texto">Clásicos, filtrados y bebidas de temporada preparados con
+                                cariño.</p>
+                            <a href="carta-cafe.html" class="tarjeta-enlace">Ver carta de café</a>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta">
+                        <img src="imagenes/5.jpg" alt="Porción de torta red velvet con frosting de queso"
+                             class="tarjeta-imagen">
+                        <div class="tarjeta-cuerpo">
+                            <p class="tarjeta-numero">02 · Dulce</p>
+                            <h3 class="tarjeta-titulo">Carta de tortas</h3>
+                            <p class="tarjeta-texto">Porciones irresistibles para acompañar tu café favorito.</p>
+                            <a href="carta-tortas.html" class="tarjeta-enlace">Ver carta de tortas</a>
+                        </div>
+                    </article>
+
+                    <article class="tarjeta tarjeta-destacada">
+                        <img src="imagenes/11_torta_petalos_rosas.png" alt="Torta decorada con pétalos de crema rosa"
+                             class="tarjeta-imagen">
+                        <div class="tarjeta-cuerpo">
+                            <p class="tarjeta-numero">03 · A pedido</p>
+                            <h3 class="tarjeta-titulo">Tortas Atelier</h3>
+                            <p class="tarjeta-texto">Diseños únicos para convertir cada celebración en algo
+                                especial.</p>
+                            <a href="tortas-atelier.html" class="tarjeta-enlace">Ver Tortas Atelier</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservas -->
+        <section id="reservas" class="seccion seccion-crema">
+            <div class="contenedor dos-columnas">
+                <div class="reserva-intro">
+                    <p class="antetitulo">Tu mesa te espera</p>
+                    <h2 class="titulo-seccion">Hacé tu reserva.</h2>
+                    <p class="texto-seccion">Elegí el día, el horario y cuántas personas vienen. Nosotros nos encargamos
+                        de tener todo listo para tu pausa.</p>
+                    <p class="nota">Las reservas se confirman según disponibilidad.</p>
+                </div>
+
+                <div class="panel panel-formulario">
+                    <form id="form-reserva" class="formulario">
+                        <div class="campo">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej: María López" size="30"
+                                   maxlength="40">
+                        </div>
+
+                        <div class="campos-fila">
+                            <div class="campo">
+                                <label for="personas">Cantidad de personas</label>
+                                <input type="number" id="personas" name="personas" placeholder="Ej: 4" size="5"
+                                       maxlength="2">
+                                <p class="campo-ayuda">Ingresá un número mayor a 0.</p>
+                            </div>
+
+                            <div class="campo">
+                                <label for="fecha">Fecha</label>
+                                <input type="date" id="fecha" name="fecha">
+                            </div>
+                        </div>
+
+                        <div class="campo">
+                            <label for="horario">Horario</label>
+                            <select id="horario" name="horario">
+                                <option value="">Elegí un horario</option>
+                                <option value="08:30">08:30 hs</option>
+                                <option value="10:00">10:00 hs</option>
+                                <option value="12:00">12:00 hs</option>
+                                <option value="16:00">16:00 hs</option>
+                                <option value="18:00">18:00 hs</option>
+                                <option value="20:00">20:00 hs</option>
+                            </select>
+                        </div>
+
+                        <button type="button" id="boton-reservar" class="boton boton-primario">Reservar</button>
+                    </form>
+
+                    <div class="panel-resultado">
+                        <p class="antetitulo">Tu reserva</p>
+                        <p id="resultado-reserva" class="resultado-texto">Completá los datos para confirmar tu
+                            mesa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tortas Atelier -->
+        <section id="atelier" class="seccion seccion-vino">
+            <div class="contenedor dos-columnas">
+                <div class="atelier-imagen-marco">
+                    <img src="imagenes/1.jpg" alt="Pastelera de La Pastelier presentando una torta decorada con crema"
+                         class="atelier-imagen">
+                </div>
+
+                <div class="atelier-contenido">
+                    <p class="antetitulo antetitulo-claro">La Pastelier Atelier</p>
+                    <h2 class="titulo-seccion titulo-claro">Tortas hechas para tu historia.</h2>
+                    <p class="atelier-texto">Creamos tortas a pedido para cumpleaños, bodas, eventos y todas esas
+                        ocasiones que merecen una mesa inolvidable.</p>
+                    <hr class="separador">
+                    <p class="atelier-nota">Contanos la fecha, cantidad de invitados e idea que tenés. Te acompañamos a
+                        encontrar la torta ideal.</p>
+                    <a href="tortas-atelier.html" class="boton boton-claro">Conocé el Atelier</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visitanos -->
+        <section id="visitanos" class="seccion seccion-arena">
+            <div class="contenedor">
+                <div class="dos-columnas">
+                    <div>
+                        <p class="antetitulo">Te esperamos</p>
+                        <h2 class="titulo-seccion">Pasá por La Pastelier</h2>
+                        <p class="texto-seccion">Encontrá tu pausa favorita: una mesa, una taza rica y algo dulce recién
+                            hecho. Consultanos por pedidos y disponibilidad.</p>
+                    </div>
+
+                    <div class="panel panel-visita">
+                        <h3 class="panel-titulo">Dónde estamos</h3>
+                        <p class="panel-texto">Bv. Elías Yofre 1243, Barrio Jardín, Córdoba.</p>
+                        <a href="https://maps.app.goo.gl/PPMGWtvZG7nSE82K6" target="_blank" rel="noopener"
+                           class="tarjeta-enlace">Abrir en Google Maps</a>
+
+                        <hr class="separador separador-oscuro">
+
+                        <h3 class="panel-titulo">Horario de atención</h3>
+                        <ul class="lista-horarios">
+                            <li><span>Martes a domingo</span><span>8:30 a 14:00 · 16:00 a 21:00 hs</span></li>
+                            <li><span>Lunes</span><span>16:00 a 21:00 hs</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mapa">
+                    <iframe src="https://www.google.com/maps?q=Bv.+El%C3%ADas+Yofre+1243,+C%C3%B3rdoba,+Argentina&amp;output=embed"
+                            title="Mapa con la ubicación de La Pastelier" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Diálogo de error de la reserva -->
+    <dialog id="dialogo-error" class="dialogo">
+        <div class="dialogo-encabezado">
+            <span class="dialogo-icono">!</span>
+            <div>
+                <h3 class="dialogo-titulo">Revisemos la cantidad</h3>
+                <p id="dialogo-mensaje" class="dialogo-texto">Error: Por favor ingresá una cantidad de personas válida,
+                    mayor a 0.</p>
+            </div>
+        </div>
+        <form method="dialog">
+            <button type="submit" class="boton boton-primario boton-ancho">Entendido</button>
+        </form>
+    </dialog>
+
+    <!-- Pie de página -->
+    <footer class="pie">
+        <div class="contenedor pie-contenido">
+            <div>
+                <p class="pie-marca">La Pastelier</p>
+                <p class="pie-texto">Café, tortas y momentos para compartir.</p>
+            </div>
+            <ul class="redes">
+                <li><a href="https://www.instagram.com/lapastelier.cba/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="https://maps.app.goo.gl/PPMGWtvZG7nSE82K6" target="_blank" rel="noopener">Cómo llegar</a></li>
+            </ul>
+        </div>
+        <p class="pie-derechos">&copy; 2026 La Pastelier - Todos los derechos reservados</p>
+    </footer>
+</body>
+
+</html>
+
