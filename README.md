@@ -52,7 +52,6 @@ El sitio web cuenta con las siguientes secciones:
 | :--- | :--- | :--- |
 | **Grillo, Facundo** | `facundogrilloucc` | Desarrollo Frontend |
 | **Marín, [Nombre]** | `[branch-marin]` | Desarrollo Frontend |
-| **Giménez, [Nombre]** | `[branch-gimenez]` | Desarrollo Frontend |
 
 ---
 
