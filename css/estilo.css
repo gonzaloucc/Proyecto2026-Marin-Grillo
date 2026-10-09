@@ -115,7 +115,30 @@ nav a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   5. PIE DE PAGINA (FOOTER)
+   5. SECCION NOSOTROS
+   -------------------------------------------------------------------------- */
+.nosotros-section {
+    padding: 3rem 1.5rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.nosotros-section h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+}
+
+.nosotros-section p {
+    max-width: 800px;
+    margin: 0 auto 1rem auto;
+    font-size: 1rem;
+    color: var(--color-texto);
+}
+
+/* --------------------------------------------------------------------------
+   6. PIE DE PAGINA (FOOTER)
    -------------------------------------------------------------------------- */
 footer {
     background-color: var(--color-texto);
