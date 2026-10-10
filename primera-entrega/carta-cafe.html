@@ -1,9 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Carta de cafe - La Pastelier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gonzalo Marin, Facundo Grillo">
+    <meta name="description" content="Carta de café de especialidad de La Pastelier.">
+    <meta name="keywords" content="la pastelier, café, espresso, latte, Córdoba">
+    <title>Carta de café - La Pastelier</title>
+
+    <link rel="icon" type="image/png" href="imagenes/LOGO.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&amp;display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="estilo.css">
 </head>
+
 <body>
+    <header class="cabecera">
+        <div class="contenedor cabecera-contenido">
+            <a href="index.html" class="marca">
+                <img src="imagenes/LOGO.png" alt="Logo de La Pastelier" class="marca-logo">
+                <span class="marca-nombre">La Pastelier</span>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-boton">Menú</label>
+
+            <nav class="navegacion" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html#cartas">Cartas</a></li>
+                    <li><a href="index.html#reservas">Reservas</a></li>
+                    <li><a href="index.html#atelier">Tortas Atelier</a></li>
+                    <li><a href="index.html#visitanos">Visítanos</a></li>
+                </ul>
+            </nav>
+
+            <a href="index.html#reservas" class="boton boton-primario cabecera-boton">Reservar</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="seccion seccion-arena carta-pagina">
+            <div class="contenedor">
+                <p class="antetitulo">La Pastelier</p>
+                <h1 class="titulo-seccion">Carta de café</h1>
+                <p class="texto-seccion">Cafés de especialidad y bebidas para disfrutar en cualquier momento del día.</p>
+
+                <div class="carta-secciones">
+                    <article class="panel carta-seccion">
+                        <h2 class="panel-titulo">Café</h2>
+                        <ul class="carta-lista">
+                            <li class="carta-item"><span>Espresso</span><strong>$4.500</strong></li>
+                            <li class="carta-item"><span>Americano</span><strong>$4.500</strong></li>
+                            <li class="carta-item"><span>Flat White</span><strong>$5.500</strong></li>
+                            <li class="carta-item"><span>Cappuccino (canela/cacao)</span><strong>$5.000</strong></li>
+                            <li class="carta-item"><span>Lágrima</span><strong>$5.000</strong></li>
+                            <li class="carta-item"><span>Latte</span><strong>$5.000</strong></li>
+                            <li class="carta-item"><span>Latte saborizado (vainilla / caramelo / avellana)</span>
+                                <strong>$6.500</strong></li>
+                            <li class="carta-item"><span>Mocka</span><strong>$5.200</strong></li>
+                            <li class="carta-item"><span>Chocolate caliente</span><strong>$5.500</strong></li>
+                        </ul>
+                    </article>
+
+                    <article class="panel carta-seccion">
+                        <h2 class="panel-titulo">Cafés fríos</h2>
+                        <ul class="carta-lista">
+                            <li class="carta-item"><span>Iced Latte</span><strong>$6.500</strong></li>
+                            <li class="carta-item"><span>Iced latte saborizados (caramel / avellana / vainilla)</span>
+                                <strong>$7.000</strong></li>
+                        </ul>
+                    </article>
+
+                    <article class="panel carta-seccion">
+                        <h2 class="panel-titulo">Especiales fríos</h2>
+                        <ul class="carta-lista">
+                            <li class="carta-item"><span>Iced Latte de pistacho</span><strong>$10.000</strong></li>
+                            <li class="carta-item"><span>Iced latte de dulce de leche</span><strong>$9.000</strong></li>
+                            <li class="carta-item"><span>Iced latte de frutos rojos</span><strong>$9.000</strong></li>
+                        </ul>
+                    </article>
+                </div>
+
+                <a href="index.html#cartas" class="boton boton-primario carta-volver">Volver a las cartas</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor pie-contenido">
+            <div>
+                <p class="pie-marca">La Pastelier</p>
+                <p class="pie-texto">Café, tortas y momentos para compartir.</p>
+            </div>
+            <ul class="redes">
+                <li><a href="https://www.instagram.com/lapastelier.cba/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="https://maps.app.goo.gl/PPMGWtvZG7nSE82K6" target="_blank" rel="noopener">Cómo llegar</a></li>
+            </ul>
+        </div>
+        <p class="pie-derechos">&copy; 2026 La Pastelier - Todos los derechos reservados</p>
+    </footer>
 </body>
+
 </html>

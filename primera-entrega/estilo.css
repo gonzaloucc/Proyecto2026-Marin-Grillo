@@ -140,6 +140,49 @@ iframe {
     margin-bottom: 2rem;
 }
 
+.carta-pagina .texto-seccion {
+    max-width: 680px;
+}
+
+.carta-secciones {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.carta-seccion {
+    padding: 1.75rem 2rem;
+}
+
+.carta-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.carta-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px dashed var(--color-borde);
+}
+
+.carta-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.carta-item strong {
+    color: var(--color-primario);
+    white-space: nowrap;
+}
+
+.carta-volver {
+    margin-top: 2rem;
+}
+
 .nota {
     font-size: 0.95rem;
     color: var(--color-kicker);
@@ -769,4 +812,3 @@ iframe {
         text-align: center;
     }
 }
-
