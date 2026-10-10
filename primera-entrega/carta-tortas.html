@@ -1,9 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gonzalo Marin, Facundo Grillo">
+    <meta name="description" content="Carta de tortas y tartas artesanales de La Pastelier.">
+    <meta name="keywords" content="la pastelier, tortas, tartas, pasteleria, Cordoba">
     <title>Carta de tortas - La Pastelier</title>
+
+    <link rel="icon" type="image/png" href="imagenes/LOGO.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&amp;display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="estilo.css">
 </head>
+
 <body>
+    <header class="cabecera">
+        <div class="contenedor cabecera-contenido">
+            <a href="index.html" class="marca">
+                <img src="imagenes/LOGO.png" alt="Logo de La Pastelier" class="marca-logo">
+                <span class="marca-nombre">La Pastelier</span>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-boton">Menú</label>
+
+            <nav class="navegacion" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html#cartas">Cartas</a></li>
+                    <li><a href="index.html#reservas">Reservas</a></li>
+                    <li><a href="index.html#atelier">Tortas Atelier</a></li>
+                    <li><a href="index.html#visitanos">Visítanos</a></li>
+                </ul>
+            </nav>
+
+            <a href="index.html#reservas" class="boton boton-primario cabecera-boton">Reservar</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="seccion seccion-arena carta-pagina">
+            <div class="contenedor">
+                <p class="antetitulo">La Pastelier</p>
+                <h1 class="titulo-seccion">Tortas y tartas</h1>
+                <p class="texto-seccion">Porciones y tortas artesanales preparadas para disfrutar y compartir.</p>
+
+                <div class="carta-secciones">
+                    <article class="panel carta-seccion">
+                        <h2 class="panel-titulo">Tortas y tartas</h2>
+                        <ul class="carta-lista">
+                            <li class="carta-item">
+                                <span>Rogel (porción)</span>
+                                <strong>$8.500</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Torta Serafina (bizcochuelo de vainilla, crema chantillí y dulce de leche)</span>
+                                <strong>$9.500</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Torta Aurelia (estilo pavlova, dulce de leche, crema chantillí, frutillas y arándanos)</span>
+                                <strong>$12.000</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Torta Dafne de dulce de leche (torta estilo marquise)</span>
+                                <strong>$12.000</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Torta Greta (torta estilo carrot cake)</span>
+                                <strong>$10.500</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Torta Velvet (bizcochuelo rojo de red velvet relleno de frosting)</span>
+                                <strong>$12.000</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Torta Bombón (bizcochuelo de chocolate con crema de chocolate al coñac)</span>
+                                <strong>$12.000</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Lemon Pie</span>
+                                <strong>$10.000</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Tarta Vasca con reducción de frambuesa</span>
+                                <strong>$12.000</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Torta Coccó (bizcochuelo de coco relleno de brigadeiro)</span>
+                                <strong>$12.000</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Key lime pie</span>
+                                <strong>$12.000</strong>
+                            </li>
+                            <li class="carta-item">
+                                <span>Tarta mousse de chocolate</span>
+                                <strong>$12.000</strong>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+
+                <a href="index.html#cartas" class="boton boton-primario carta-volver">Volver a las cartas</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor pie-contenido">
+            <div>
+                <p class="pie-marca">La Pastelier</p>
+                <p class="pie-texto">Café, tortas y momentos para compartir.</p>
+            </div>
+            <ul class="redes">
+                <li><a href="https://www.instagram.com/lapastelier.cba/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="https://maps.app.goo.gl/PPMGWtvZG7nSE82K6" target="_blank" rel="noopener">Cómo llegar</a></li>
+            </ul>
+        </div>
+        <p class="pie-derechos">&copy; 2026 La Pastelier - Todos los derechos reservados</p>
+    </footer>
 </body>
+
 </html>
