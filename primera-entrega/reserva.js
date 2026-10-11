@@ -1,6 +1,5 @@
 const DIAS_MAXIMOS_RESERVA = 14;
 const PERSONAS_MAXIMAS = 20;
-let campoConError = null;
 
 /**
  * Convierte una fecha al formato AAAA-MM-DD que usa el input de tipo date.
@@ -29,38 +28,6 @@ const configurarFechaReserva = () => {
 
     document.getElementById('fecha').min = formatearFechaInput(hoy);
     document.getElementById('fecha').max = formatearFechaInput(limite);
-};
-
-/**
- * Muestra el diálogo de error y blanquea el campo que tiene el valor incorrecto.
- * @method mostrarError
- * @param {Object} campo - Input o select que tiene el valor incorrecto.
- * @param {string} titulo - Título que se muestra en el diálogo.
- * @param {string} texto - Explicación del error para el usuario.
- * @return {boolean} Siempre false, para indicar que la validación falló.
- */
-const mostrarError = (campo, titulo, texto) => {
-    campo.value = '';
-    campoConError = campo;
-
-    document.getElementById('dialogo-titulo').innerText = titulo;
-    document.getElementById('dialogo-mensaje').innerText = 'Error: ' + texto;
-    document.getElementById('dialogo-error').showModal();
-
-    return false;
-};
-
-/**
- * Cierra el diálogo de error y vuelve a posicionar el cursor en el campo incorrecto.
- * @method cerrarDialogo
- * @return {void}
- */
-const cerrarDialogo = () => {
-    document.getElementById('dialogo-error').close();
-
-    if (campoConError !== null) {
-        campoConError.focus();
-    }
 };
 
 /**

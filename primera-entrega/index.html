@@ -23,10 +23,12 @@
 
     <link rel="stylesheet" href="estilo.css">
 
+    <script type="text/javascript" src="dialogo.js"></script>
+    <script type="text/javascript" src="carrito.js"></script>
     <script type="text/javascript" src="reserva.js"></script>
 </head>
 
-<body onload="configurarFechaReserva()">
+<body onload="configurarFechaReserva(); contarProductos()">
     <!-- Cabecera -->
     <header class="cabecera">
         <div class="contenedor cabecera-contenido">
@@ -43,13 +45,20 @@
                 <ul>
                     <li><a href="#cartas">Cartas</a></li>
                     <li><a href="#reservas">Reservas</a></li>
+                    <li><a href="pedido.html">Take away</a></li>
                     <li><a href="#atelier">Tortas Atelier</a></li>
                     <li><a href="#visitanos">Visitanos</a></li>
                 </ul>
             </nav>
 
-            <a href="#reservas" class="boton boton-primario cabecera-boton"><span class="material-symbols-rounded icono"
-                    aria-hidden="true">calendar_month</span>Reservar</a>
+            <div class="cabecera-acciones">
+                <a href="carrito.html" class="cabecera-carrito" aria-label="Ver mi pedido para llevar">
+                    <span class="material-symbols-rounded" aria-hidden="true">shopping_bag</span>
+                    <span id="cant-prod" class="contador">0</span>
+                </a>
+                <a href="#reservas" class="boton boton-primario cabecera-boton"><span class="material-symbols-rounded icono"
+                        aria-hidden="true">calendar_month</span>Reservar</a>
+            </div>
         </div>
     </header>
 
@@ -66,6 +75,7 @@
                             aria-hidden="true">menu_book</span>Ver las cartas</a>
                     <a href="#reservas" class="boton boton-contorno"><span class="material-symbols-rounded icono"
                             aria-hidden="true">event_available</span>Hacer una reserva</a>
+                    <a href="pedido.html" class="boton boton-contorno"><span class="material-symbols-rounded icono" aria-hidden="true">shopping_bag</span>Pedí para llevar</a>
                 </div>
             </div>
         </section>
