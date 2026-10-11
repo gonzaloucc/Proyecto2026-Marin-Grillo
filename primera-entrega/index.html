@@ -6,22 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Gonzalo Marin, Facundo Grillo">
     <meta name="description"
-          content="Sitio web oficial de La Pastelier. Cafetería de especialidad, pastelería artesanal y tortas personalizadas de atelier en Córdoba.">
-    <meta name="keywords" content="la pastelier, cafeteria, especialidad, patisserie, tortas, cordoba, cafe, postres, reservas">
+        content="Sitio web oficial de La Pastelier. Cafetería de especialidad, pastelería artesanal y tortas personalizadas de atelier en Córdoba.">
+    <meta name="keywords"
+        content="la pastelier, cafeteria, especialidad, patisserie, tortas, cordoba, cafe, postres, reservas">
     <title>La Pastelier - Café de Especialidad &amp; Patisserie</title>
 
     <link rel="icon" type="image/png" href="imagenes/LOGO.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=block"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=block"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="estilo.css">
+
+    <script type="text/javascript" src="dialogo.js"></script>
+    <script type="text/javascript" src="carrito.js"></script>
+    <script type="text/javascript" src="reserva.js"></script>
 </head>
 
-<body onload="configurarFechaReserva()">
+<body onload="configurarFechaReserva(); contarProductos()">
     <!-- Cabecera -->
     <header class="cabecera">
         <div class="contenedor cabecera-contenido">
@@ -31,18 +38,27 @@
             </a>
 
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="menu-boton"><span class="material-symbols-rounded icono" aria-hidden="true">menu</span>Menú</label>
+            <label for="menu-toggle" class="menu-boton"><span class="material-symbols-rounded icono"
+                    aria-hidden="true">menu</span>Menú</label>
 
             <nav class="navegacion">
                 <ul>
                     <li><a href="#cartas">Cartas</a></li>
                     <li><a href="#reservas">Reservas</a></li>
+                    <li><a href="pedido.html">Take away</a></li>
                     <li><a href="#atelier">Tortas Atelier</a></li>
                     <li><a href="#visitanos">Visitanos</a></li>
                 </ul>
             </nav>
 
-            <a href="#reservas" class="boton boton-primario cabecera-boton"><span class="material-symbols-rounded icono" aria-hidden="true">calendar_month</span>Reservar</a>
+            <div class="cabecera-acciones">
+                <a href="carrito.html" class="cabecera-carrito" aria-label="Ver mi pedido para llevar">
+                    <span class="material-symbols-rounded" aria-hidden="true">shopping_bag</span>
+                    <span id="cant-prod" class="contador">0</span>
+                </a>
+                <a href="#reservas" class="boton boton-primario cabecera-boton"><span class="material-symbols-rounded icono"
+                        aria-hidden="true">calendar_month</span>Reservar</a>
+            </div>
         </div>
     </header>
 
@@ -55,8 +71,11 @@
                 <p class="portada-texto">Café de especialidad, pastelería artesanal y tortas creadas para celebrar tus
                     momentos más lindos.</p>
                 <div class="portada-botones">
-                    <a href="#cartas" class="boton boton-claro"><span class="material-symbols-rounded icono" aria-hidden="true">menu_book</span>Ver las cartas</a>
-                    <a href="#reservas" class="boton boton-contorno"><span class="material-symbols-rounded icono" aria-hidden="true">event_available</span>Hacer una reserva</a>
+                    <a href="#cartas" class="boton boton-claro"><span class="material-symbols-rounded icono"
+                            aria-hidden="true">menu_book</span>Ver las cartas</a>
+                    <a href="#reservas" class="boton boton-contorno"><span class="material-symbols-rounded icono"
+                            aria-hidden="true">event_available</span>Hacer una reserva</a>
+                    <a href="pedido.html" class="boton boton-contorno"><span class="material-symbols-rounded icono" aria-hidden="true">shopping_bag</span>Pedí para llevar</a>
                 </div>
             </div>
         </section>
@@ -72,40 +91,39 @@
                 <div class="tarjetas">
                     <article class="tarjeta">
                         <img src="imagenes/cafe-arte-latte.jpeg" alt="Café con arte latte en taza de porcelana floreada"
-                             class="tarjeta-imagen">
+                            class="tarjeta-imagen">
                         <div class="tarjeta-cuerpo">
-                            <p class="tarjeta-numero">01 · Bebidas</p>
-                            <h3 class="tarjeta-titulo">Carta de café</h3>
-                            <p class="tarjeta-texto">Clásicos, filtrados y bebidas de temporada preparados con
-                                cariño.</p>
-                            <a href="carta-cafe.html" class="tarjeta-enlace">Ver carta de café<span class="material-symbols-rounded icono" aria-hidden="true">arrow_forward</span></a>
+                            <p class="tarjeta-numero">01 · Para tomar</p>
+                            <h3 class="tarjeta-titulo">Bebidas</h3>
+                            <p class="tarjeta-texto">Café de especialidad, cafés fríos, té en hebras, limonadas y licuados.</p>
+                            <a href="carta.html#bebidas" class="tarjeta-enlace">Ver bebidas<span class="material-symbols-rounded icono" aria-hidden="true">arrow_forward</span></a>
                         </div>
                     </article>
 
                     <article class="tarjeta">
-                        <img src="imagenes/porcion-red-velvet.jpg" alt="Porción de torta red velvet con frosting de queso"
-                             class="tarjeta-imagen">
+                        <img src="imagenes/07_laminados_artesanales_detalle.png" alt="Croissants y medialunas artesanales sobre platos blancos"
+                            class="tarjeta-imagen">
                         <div class="tarjeta-cuerpo">
-                            <p class="tarjeta-numero">02 · Dulce</p>
-                            <h3 class="tarjeta-titulo">Carta de tortas</h3>
-                            <p class="tarjeta-texto">Porciones irresistibles para acompañar tu café favorito.</p>
-                            <a href="carta-tortas.html" class="tarjeta-enlace">Ver carta de tortas<span class="material-symbols-rounded icono" aria-hidden="true">arrow_forward</span></a>
+                            <p class="tarjeta-numero">02 · Para comer</p>
+                            <h3 class="tarjeta-titulo">Dulce y salado</h3>
+                            <p class="tarjeta-texto">Laminados, pastelería de autor, porciones de torta, croissants rellenos y tostones.</p>
+                            <a href="carta.html#comer" class="tarjeta-enlace">Ver dulce y salado<span class="material-symbols-rounded icono" aria-hidden="true">arrow_forward</span></a>
                         </div>
                     </article>
 
-                    <article class="tarjeta tarjeta-destacada">
-                        <img src="imagenes/11_torta_petalos_rosas.png" alt="Torta decorada con pétalos de crema rosa"
-                             class="tarjeta-imagen">
+                    <article class="tarjeta">
+                        <img src="imagenes/merienda.jpeg" alt="Mesa de merienda con cafés, porciones de torta y tostadas"
+                            class="tarjeta-imagen">
                         <div class="tarjeta-cuerpo">
-                            <p class="tarjeta-numero">03 · A pedido</p>
-                            <h3 class="tarjeta-titulo">Tortas Atelier</h3>
-                            <p class="tarjeta-texto">Diseños únicos para convertir cada celebración en algo
-                                especial.</p>
-                            <a href="https://wa.me/5493510000000?text=Hola%20La%20Pastelier%2C%20quiero%20consultar%20por%20una%20torta%20del%20Atelier." target="_blank" rel="noopener"
-                               class="tarjeta-enlace"><span class="material-symbols-rounded icono" aria-hidden="true">chat</span>Consultar por WhatsApp</a>
+                            <p class="tarjeta-numero">03 · Combos</p>
+                            <h3 class="tarjeta-titulo">Experiencias</h3>
+                            <p class="tarjeta-texto">Desayunos, meriendas, brunch y la Torre de Reinas para compartir.</p>
+                            <a href="carta.html#experiencias" class="tarjeta-enlace">Ver experiencias<span class="material-symbols-rounded icono" aria-hidden="true">arrow_forward</span></a>
                         </div>
                     </article>
                 </div>
+
+                <a href="carta.html" class="boton boton-primario cartas-boton"><span class="material-symbols-rounded icono" aria-hidden="true">menu_book</span>Ver la carta completa</a>
             </div>
         </section>
 
@@ -126,28 +144,32 @@
                         <p class="campo-ayuda">Los campos marcados con * son obligatorios.</p>
 
                         <div class="campo">
-                            <label for="nombre"><span class="material-symbols-rounded icono" aria-hidden="true">person</span>Nombre *</label>
+                            <label for="nombre"><span class="material-symbols-rounded icono"
+                                    aria-hidden="true">person</span>Nombre *</label>
                             <input type="text" id="nombre" name="nombre" placeholder="Ej: María López" size="30"
-                                   maxlength="40" required>
+                                maxlength="40" required>
                         </div>
 
                         <div class="campos-fila">
                             <div class="campo">
-                                <label for="personas"><span class="material-symbols-rounded icono" aria-hidden="true">group</span>Personas *</label>
-                                <input type="number" id="personas" name="personas" placeholder="Ej: 4" min="1"
-                                       max="20" required>
+                                <label for="personas"><span class="material-symbols-rounded icono"
+                                        aria-hidden="true">group</span>Personas *</label>
+                                <input type="number" id="personas" name="personas" placeholder="Ej: 4" min="1" max="20"
+                                    required>
                                 <p class="campo-ayuda">Entre 1 y 20 personas.</p>
                             </div>
 
                             <div class="campo">
-                                <label for="fecha"><span class="material-symbols-rounded icono" aria-hidden="true">calendar_today</span>Fecha *</label>
+                                <label for="fecha"><span class="material-symbols-rounded icono"
+                                        aria-hidden="true">calendar_today</span>Fecha *</label>
                                 <input type="date" id="fecha" name="fecha" required>
                                 <p class="campo-ayuda">Hasta 14 días desde hoy.</p>
                             </div>
                         </div>
 
                         <div class="campo">
-                            <label for="horario"><span class="material-symbols-rounded icono" aria-hidden="true">schedule</span>Horario *</label>
+                            <label for="horario"><span class="material-symbols-rounded icono"
+                                    aria-hidden="true">schedule</span>Horario *</label>
                             <select id="horario" name="horario" required>
                                 <option value="">Elegí un horario</option>
                                 <option value="08:30">08:30 hs</option>
@@ -161,7 +183,8 @@
                         </div>
 
                         <button type="button" id="boton-reservar" class="boton boton-primario"
-                                onclick="validarReserva()"><span class="material-symbols-rounded icono" aria-hidden="true">event_available</span>Reservar</button>
+                            onclick="validarReserva()"><span class="material-symbols-rounded icono"
+                                aria-hidden="true">event_available</span>Reservar</button>
                     </form>
 
                     <div class="panel-resultado">
@@ -177,8 +200,8 @@
         <section id="atelier" class="seccion seccion-vino">
             <div class="contenedor dos-columnas">
                 <div class="atelier-imagen-marco">
-                    <img src="imagenes/pastelera-torta-atelier.jpg" alt="Pastelera de La Pastelier presentando una torta decorada con crema"
-                         class="atelier-imagen">
+                    <img src="imagenes/pastelera-torta-atelier.jpg"
+                        alt="Pastelera de La Pastelier presentando una torta decorada con crema" class="atelier-imagen">
                 </div>
 
                 <div class="atelier-contenido">
@@ -189,8 +212,10 @@
                     <hr class="separador">
                     <p class="atelier-nota">Contanos la fecha, cantidad de invitados e idea que tenés. Te acompañamos a
                         encontrar la torta ideal.</p>
-                    <a href="https://wa.me/5493510000000?text=Hola%20La%20Pastelier%2C%20quiero%20consultar%20por%20una%20torta%20del%20Atelier." target="_blank" rel="noopener"
-                       class="boton boton-claro"><span class="material-symbols-rounded icono" aria-hidden="true">chat</span>Consultar por WhatsApp</a>
+                    <a href="https://wa.me/5493510000000?text=Hola%20La%20Pastelier%2C%20quiero%20consultar%20por%20una%20torta%20del%20Atelier."
+                        target="_blank" rel="noopener" class="boton boton-claro"><span
+                            class="material-symbols-rounded icono" aria-hidden="true">chat</span>Consultar por
+                        WhatsApp</a>
                 </div>
             </div>
         </section>
@@ -207,14 +232,17 @@
                     </div>
 
                     <div class="panel panel-visita">
-                        <h3 class="panel-titulo"><span class="material-symbols-rounded icono" aria-hidden="true">location_on</span>Dónde estamos</h3>
+                        <h3 class="panel-titulo"><span class="material-symbols-rounded icono"
+                                aria-hidden="true">location_on</span>Dónde estamos</h3>
                         <p class="panel-texto">Bv. Elías Yofre 1243, Barrio Jardín, Córdoba.</p>
                         <a href="https://maps.app.goo.gl/PPMGWtvZG7nSE82K6" target="_blank" rel="noopener"
-                           class="tarjeta-enlace">Abrir en Google Maps<span class="material-symbols-rounded icono" aria-hidden="true">open_in_new</span></a>
+                            class="tarjeta-enlace">Abrir en Google Maps<span class="material-symbols-rounded icono"
+                                aria-hidden="true">open_in_new</span></a>
 
                         <hr class="separador separador-oscuro">
 
-                        <h3 class="panel-titulo"><span class="material-symbols-rounded icono" aria-hidden="true">schedule</span>Horario de atención</h3>
+                        <h3 class="panel-titulo"><span class="material-symbols-rounded icono"
+                                aria-hidden="true">schedule</span>Horario de atención</h3>
                         <ul class="lista-horarios">
                             <li><span>Martes a domingo</span><span>8:30 a 14:00 · 16:00 a 21:00 hs</span></li>
                             <li><span>Lunes</span><span>16:00 a 21:00 hs</span></li>
@@ -223,26 +251,26 @@
                 </div>
 
                 <div class="mapa">
-                    <iframe src="https://www.google.com/maps?q=Bv.+El%C3%ADas+Yofre+1243,+C%C3%B3rdoba,+Argentina&amp;output=embed"
-                            title="Mapa con la ubicación de La Pastelier" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps?q=Bv.+El%C3%ADas+Yofre+1243,+C%C3%B3rdoba,+Argentina&amp;output=embed"
+                        title="Mapa con la ubicación de La Pastelier" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Diálogo de error de la reserva -->
-    <dialog id="dialogo-error" class="dialogo" onclose="enfocarCampoConError()">
+    <dialog id="dialogo-error" class="dialogo">
         <div class="dialogo-encabezado">
             <span class="dialogo-icono"><span class="material-symbols-rounded" aria-hidden="true">error</span></span>
             <div>
                 <h3 id="dialogo-titulo" class="dialogo-titulo">Revisemos los datos</h3>
-                <p id="dialogo-mensaje" class="dialogo-texto">Error: Por favor completá todos los campos obligatorios.</p>
+                <p id="dialogo-mensaje" class="dialogo-texto">Error: Por favor completá todos los campos obligatorios.
+                </p>
             </div>
         </div>
-        <form method="dialog">
-            <button type="submit" class="boton boton-primario boton-ancho">Entendido</button>
-        </form>
+        <button type="button" class="boton boton-primario boton-ancho" onclick="cerrarDialogo()">Entendido</button>
     </dialog>
 
     <!-- Pie de página -->
@@ -253,14 +281,16 @@
                 <p class="pie-texto">Café, tortas y momentos para compartir.</p>
             </div>
             <ul class="redes">
-                <li><a href="https://www.instagram.com/lapastelier.cba/" target="_blank" rel="noopener"><span class="material-symbols-rounded icono" aria-hidden="true">photo_camera</span>Instagram</a></li>
-                <li><a href="https://maps.app.goo.gl/PPMGWtvZG7nSE82K6" target="_blank" rel="noopener"><span class="material-symbols-rounded icono" aria-hidden="true">directions</span>Cómo llegar</a></li>
+                <li><a href="https://www.instagram.com/lapastelier.cba/" target="_blank" rel="noopener"><span
+                            class="material-symbols-rounded icono" aria-hidden="true">photo_camera</span>Instagram</a>
+                </li>
+                <li><a href="https://maps.app.goo.gl/PPMGWtvZG7nSE82K6" target="_blank" rel="noopener"><span
+                            class="material-symbols-rounded icono" aria-hidden="true">directions</span>Cómo llegar</a>
+                </li>
             </ul>
         </div>
         <p class="pie-derechos">&copy; 2026 La Pastelier - Todos los derechos reservados</p>
     </footer>
-
-    <script src="reserva.js"></script>
 </body>
 
 </html>

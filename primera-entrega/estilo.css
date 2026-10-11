@@ -64,6 +64,7 @@ ul {
 
 input,
 select,
+textarea,
 button {
     font-family: inherit;
     font-size: 1rem;
@@ -144,14 +145,160 @@ iframe {
     max-width: 680px;
 }
 
+.carta-filtros {
+    position: sticky;
+    top: 77px;
+    z-index: 50;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding: 1rem 0;
+    background-color: var(--color-arena);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.filtro-grupo {
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filtro-titulo {
+    width: 100%;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-kicker);
+}
+
+/* El radio se oculta visualmente pero sigue siendo accesible con el teclado */
+.filtro-radio {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.filtro-pastilla {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radio-boton);
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-chocolate);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.filtro-pastilla:hover {
+    border-color: var(--color-primario);
+}
+
+/* Pseudoclase :checked para marcar la categoria elegida */
+.filtro-radio:checked + .filtro-pastilla {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.filtro-radio:focus-visible + .filtro-pastilla {
+    box-shadow: 0 0 0 3px rgba(110, 57, 56, 0.25);
+}
+
+.buscador {
+    display: flex;
+    flex-direction: column;
+}
+
+.buscador-campo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radio-boton);
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-kicker);
+    transition: var(--transicion);
+}
+
+/* Pseudoclase :focus-within para resaltar el buscador mientras se escribe */
+.buscador-campo:focus-within {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(110, 57, 56, 0.15);
+}
+
+.buscador-campo input {
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    color: var(--color-chocolate);
+    width: 100%;
+}
+
+.carta-vacia {
+    display: none;
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: var(--radio-tarjeta);
+    border: 1px dashed var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+.carta-categoria {
+    margin-top: 3.5rem;
+}
+
+.carta-categoria-encabezado {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.carta-categoria-imagen {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: var(--sombra-suave);
+    flex-shrink: 0;
+}
+
+.titulo-categoria {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--color-chocolate);
+    line-height: 1.2;
+}
+
+.carta-categoria-texto {
+    color: var(--color-texto);
+}
+
 .carta-secciones {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    align-items: start;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1.75rem;
 }
 
 .carta-seccion {
     padding: 1.75rem 2rem;
+}
+
+.carta-seccion .panel-titulo {
+    margin-bottom: 1rem;
 }
 
 .carta-lista {
@@ -162,7 +309,7 @@ iframe {
 
 .carta-item {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
     padding-bottom: 0.6rem;
@@ -177,6 +324,35 @@ iframe {
 .carta-item strong {
     color: var(--color-primario);
     white-space: nowrap;
+}
+
+.carta-nombre {
+    color: var(--color-chocolate);
+    font-weight: 500;
+}
+
+.carta-detalle {
+    font-size: 0.9rem;
+    color: var(--color-kicker);
+    line-height: 1.4;
+}
+
+/* Pseudoclase :empty para ocultar productos sin descripción */
+.carta-detalle:empty {
+    display: none;
+}
+
+.carta-atelier {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+    background-color: var(--color-crema);
+}
+
+.cartas-boton {
+    margin-top: 2.5rem;
 }
 
 .carta-volver {
@@ -255,6 +431,17 @@ iframe {
     border-color: var(--color-fondo);
 }
 
+.boton-contorno-oscuro {
+    background-color: transparent;
+    color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+
+.boton-contorno-oscuro:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
 .boton-ancho {
     width: 100%;
 }
@@ -326,6 +513,46 @@ iframe {
 .cabecera-boton {
     font-size: 0.95rem;
     padding: 0.6rem 1.4rem;
+}
+
+.cabecera-acciones {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.cabecera-carrito {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--color-borde);
+    color: var(--color-chocolate);
+}
+
+.cabecera-carrito:hover {
+    background-color: var(--color-arena);
+    border-color: var(--color-primario);
+}
+
+.contador {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 10px;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    font-size: 0.75rem;
+    font-weight: 700;
 }
 
 /* Menu toggle para mobile (sin JS requerido) */
@@ -407,10 +634,6 @@ iframe {
 .tarjeta:hover {
     transform: translateY(-6px);
     box-shadow: var(--sombra-media);
-}
-
-.tarjeta-destacada {
-    background-color: #f8eee7;
 }
 
 .tarjeta-imagen {
@@ -508,7 +731,8 @@ iframe {
 }
 
 .campo input,
-.campo select {
+.campo select,
+.campo textarea {
     padding: 0.65rem 0.9rem;
     border-radius: 8px;
     border: 1px solid var(--color-borde);
@@ -519,7 +743,8 @@ iframe {
 
 /* Pseudoclase :focus */
 .campo input:focus,
-.campo select:focus {
+.campo select:focus,
+.campo textarea:focus {
     outline: none;
     border-color: var(--color-primario);
     box-shadow: 0 0 0 3px rgba(110, 57, 56, 0.15);
@@ -752,9 +977,203 @@ iframe {
 }
 
 /* --------------------------------------------------------------------------
-   12. RESPONSIVE DESIGN (MEDIA QUERIES)
+   12. TAKE AWAY (PEDIDO Y CARRITO)
+   -------------------------------------------------------------------------- */
+.pasos-pedido {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.pasos-pedido li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radio-boton);
+    background-color: var(--color-crema);
+    color: var(--color-chocolate);
+    font-size: 0.95rem;
+}
+
+.carta-item-texto {
+    flex-grow: 1;
+}
+
+.boton-agregar,
+.boton-cantidad {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: var(--transicion);
+}
+
+.boton-agregar {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.boton-agregar:hover {
+    background-color: var(--color-primario-hover);
+    transform: scale(1.08);
+}
+
+/* Pseudoclase :active para dar respuesta al tocar el botón */
+.boton-agregar:active {
+    transform: scale(0.92);
+}
+
+.resumen-pedido {
+    position: sticky;
+    bottom: 1rem;
+    z-index: 40;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radio-tarjeta);
+    background-color: var(--color-chocolate);
+    color: var(--color-fondo);
+    box-shadow: var(--sombra-media);
+}
+
+.resumen-pedido p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.carrito-columnas {
+    align-items: start;
+    margin-top: 1.5rem;
+}
+
+.carrito-lista {
+    margin: 1rem 0;
+}
+
+.carrito-item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed var(--color-borde);
+}
+
+.carrito-item strong {
+    color: var(--color-primario);
+    min-width: 80px;
+    text-align: right;
+}
+
+.carrito-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+}
+
+.boton-cantidad {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-chocolate);
+}
+
+.boton-cantidad:hover {
+    border-color: var(--color-primario);
+    color: var(--color-primario);
+}
+
+.carrito-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.25rem;
+    font-size: 1.3rem;
+    color: var(--color-chocolate);
+}
+
+.carrito-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.carrito-seguir {
+    margin-top: 1.25rem;
+}
+
+.campo textarea {
+    resize: vertical;
+}
+
+.pedido-enviado {
+    display: none;
+    max-width: 560px;
+    margin: 1.5rem auto 0;
+}
+
+.pedido-enviado-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.pedido-enviado-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--color-crema);
+    color: var(--color-primario);
+}
+
+.pedido-enviado-icono .material-symbols-rounded {
+    font-size: 2.2rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. RESPONSIVE DESIGN (MEDIA QUERIES)
    -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
+    .menu-boton {
+        order: 1;
+    }
+
+    .cabecera-acciones {
+        margin-left: auto;
+        margin-right: 0.75rem;
+    }
+
+    .carta-filtros {
+        position: static;
+    }
+
+    .buscador {
+        width: 100%;
+    }
+
     .dos-columnas {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -812,6 +1231,24 @@ iframe {
 @media (max-width: 520px) {
     .campos-fila {
         grid-template-columns: 1fr;
+    }
+
+    .carta-secciones {
+        grid-template-columns: 1fr;
+    }
+
+    .carta-seccion {
+        padding: 1.4rem 1.2rem;
+    }
+
+    .carta-categoria-imagen {
+        width: 80px;
+        height: 80px;
+    }
+
+    .carta-atelier {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .portada-titulo {

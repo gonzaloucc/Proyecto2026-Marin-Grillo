@@ -1,0 +1,119 @@
+const productos = [
+    {id: 1, nombre: 'Espresso', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 4500, paraLlevar: true},
+    {id: 2, nombre: 'Americano', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 4500, paraLlevar: true},
+    {id: 3, nombre: 'Flat White', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 5500, paraLlevar: true},
+    {id: 4, nombre: 'Cappuccino', descripcion: 'Con canela o cacao', categoria: 'bebidas', seccion: 'Café', precio: 5000, paraLlevar: true},
+    {id: 5, nombre: 'Lágrima', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 5000, paraLlevar: true},
+    {id: 6, nombre: 'Latte', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 5000, paraLlevar: true},
+    {id: 7, nombre: 'Latte saborizado', descripcion: 'Vainilla, caramelo o avellana', categoria: 'bebidas', seccion: 'Café', precio: 6500, paraLlevar: true},
+    {id: 8, nombre: 'Mocha', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 5200, paraLlevar: true},
+    {id: 9, nombre: 'Chocolate caliente', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 5500, paraLlevar: true},
+
+    {id: 10, nombre: 'Iced Latte', descripcion: '', categoria: 'bebidas', seccion: 'Cafés fríos', precio: 6500, paraLlevar: true},
+    {id: 11, nombre: 'Iced Latte saborizado', descripcion: 'Caramelo, avellana o vainilla', categoria: 'bebidas', seccion: 'Cafés fríos', precio: 7000, paraLlevar: true},
+    {id: 12, nombre: 'Iced Latte de pistacho', descripcion: 'Especial de la casa', categoria: 'bebidas', seccion: 'Cafés fríos', precio: 10000, paraLlevar: true},
+    {id: 13, nombre: 'Iced Latte de dulce de leche', descripcion: 'Especial de la casa', categoria: 'bebidas', seccion: 'Cafés fríos', precio: 9000, paraLlevar: true},
+    {id: 14, nombre: 'Iced Latte de frutos rojos', descripcion: 'Especial de la casa', categoria: 'bebidas', seccion: 'Cafés fríos', precio: 9000, paraLlevar: true},
+
+    {id: 15, nombre: 'Espresso tonic', descripcion: 'Espresso con agua tónica', categoria: 'bebidas', seccion: 'Refrescantes', precio: 8000, paraLlevar: true},
+    {id: 16, nombre: 'Espresso orange', descripcion: 'Espresso con jugo de naranja natural', categoria: 'bebidas', seccion: 'Refrescantes', precio: 9000, paraLlevar: true},
+    {id: 17, nombre: 'Espresso limón y miel', descripcion: 'Espresso con jugo de limón natural', categoria: 'bebidas', seccion: 'Refrescantes', precio: 7000, paraLlevar: true},
+    {id: 18, nombre: 'Cold brew', descripcion: 'Café macerado 12 horas, con hielo', categoria: 'bebidas', seccion: 'Refrescantes', precio: 6000, paraLlevar: true},
+
+    {id: 19, nombre: 'Té en hebras premium', descripcion: '', categoria: 'bebidas', seccion: 'Té e infusiones', precio: 6000, paraLlevar: true},
+    {id: 20, nombre: 'Tetera para 2 personas', descripcion: '', categoria: 'bebidas', seccion: 'Té e infusiones', precio: 10000, paraLlevar: false},
+    {id: 21, nombre: 'Té con leche', descripcion: '', categoria: 'bebidas', seccion: 'Té e infusiones', precio: 6500, paraLlevar: true},
+    {id: 22, nombre: 'Adicional leche sin lactosa', descripcion: '', categoria: 'bebidas', seccion: 'Té e infusiones', precio: 1800, paraLlevar: true},
+    {id: 23, nombre: 'Adicional leche de almendra', descripcion: '', categoria: 'bebidas', seccion: 'Té e infusiones', precio: 1800, paraLlevar: true},
+
+    {id: 24, nombre: 'Limonada natural', descripcion: 'Jugo de limón natural con hielo y agua', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 5500, paraLlevar: true},
+    {id: 25, nombre: 'Limonada de frutos rojos', descripcion: 'Jugo de limón natural con frutos rojos, hielo y agua', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 6500, paraLlevar: true},
+    {id: 26, nombre: 'Jarra de limonada (1 L)', descripcion: '', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 10000, paraLlevar: true},
+    {id: 27, nombre: 'Jarra de limonada de frutos rojos (1 L)', descripcion: '', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 12000, paraLlevar: true},
+    {id: 28, nombre: 'Jugo de naranja natural', descripcion: 'Exprimido en el momento', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 7500, paraLlevar: true},
+    {id: 29, nombre: 'Licuado de banana', descripcion: '', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 8500, paraLlevar: true},
+    {id: 30, nombre: 'Licuado de banana y frutos rojos', descripcion: '', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 9000, paraLlevar: true},
+    {id: 31, nombre: 'Licuado de durazno y naranja', descripcion: '', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 9000, paraLlevar: true},
+    {id: 32, nombre: 'Licuado de palta y frutos rojos', descripcion: '', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 9500, paraLlevar: true},
+    {id: 33, nombre: 'Gaseosa', descripcion: 'Línea comercial', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 4000, paraLlevar: true},
+    {id: 34, nombre: 'Agua saborizada', descripcion: '', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 4000, paraLlevar: true},
+    {id: 35, nombre: 'Agua con o sin gas', descripcion: '', categoria: 'bebidas', seccion: 'Bebidas frías', precio: 3000, paraLlevar: true},
+
+    {id: 36, nombre: 'Medialuna marplatense', descripcion: '', categoria: 'dulce', seccion: 'Laminados artesanales', precio: 4000, paraLlevar: true},
+    {id: 37, nombre: 'Roll de canela', descripcion: '', categoria: 'dulce', seccion: 'Laminados artesanales', precio: 8000, paraLlevar: true},
+    {id: 38, nombre: 'Croissant clásico', descripcion: '', categoria: 'dulce', seccion: 'Laminados artesanales', precio: 8000, paraLlevar: true},
+    {id: 39, nombre: 'Croissant de dulce de leche', descripcion: 'Con salsa de chocolate', categoria: 'dulce', seccion: 'Laminados artesanales', precio: 9500, paraLlevar: true},
+    {id: 40, nombre: 'Croissant de ganache de chocolate', descripcion: '', categoria: 'dulce', seccion: 'Laminados artesanales', precio: 10000, paraLlevar: true},
+    {id: 41, nombre: 'Croissant de ganache de Nutella', descripcion: '', categoria: 'dulce', seccion: 'Laminados artesanales', precio: 12000, paraLlevar: true},
+
+    {id: 42, nombre: 'Macarrón', descripcion: 'Consultá las variedades del día', categoria: 'dulce', seccion: 'Pastelería individual', precio: 4000, paraLlevar: true},
+    {id: 43, nombre: 'Budín artesanal', descripcion: 'Consultá las variedades del día', categoria: 'dulce', seccion: 'Pastelería individual', precio: 5500, paraLlevar: true},
+    {id: 44, nombre: 'Alfajor de maicena', descripcion: '', categoria: 'dulce', seccion: 'Pastelería individual', precio: 3000, paraLlevar: true},
+    {id: 45, nombre: 'Alfajor de chocolate', descripcion: '', categoria: 'dulce', seccion: 'Pastelería individual', precio: 4000, paraLlevar: true},
+    {id: 46, nombre: 'Alfajor de nuez', descripcion: '', categoria: 'dulce', seccion: 'Pastelería individual', precio: 4000, paraLlevar: true},
+    {id: 47, nombre: 'Alfajor de pistacho', descripcion: '', categoria: 'dulce', seccion: 'Pastelería individual', precio: 5000, paraLlevar: true},
+    {id: 48, nombre: 'Lunette de frambuesa', descripcion: '', categoria: 'dulce', seccion: 'Pastelería individual', precio: 4000, paraLlevar: true},
+    {id: 49, nombre: 'Profiterol de diplomata', descripcion: 'Vainilla y naranja', categoria: 'dulce', seccion: 'Pastelería individual', precio: 4000, paraLlevar: true},
+    {id: 50, nombre: 'Cookie de pistacho', descripcion: '', categoria: 'dulce', seccion: 'Pastelería individual', precio: 5500, paraLlevar: true},
+    {id: 51, nombre: 'Cookie red velvet', descripcion: '', categoria: 'dulce', seccion: 'Pastelería individual', precio: 5500, paraLlevar: true},
+    {id: 52, nombre: 'Cookie de Oreo', descripcion: '', categoria: 'dulce', seccion: 'Pastelería individual', precio: 5500, paraLlevar: true},
+    {id: 53, nombre: 'Cookie de Nutella', descripcion: '', categoria: 'dulce', seccion: 'Pastelería individual', precio: 5500, paraLlevar: true},
+
+    {id: 54, nombre: 'Rogel', descripcion: 'Capas crocantes con dulce de leche y merengue italiano', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 8500, paraLlevar: true},
+    {id: 55, nombre: 'Torta Serafina', descripcion: 'Bizcochuelo de vainilla, crema chantillí y dulce de leche', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 9500, paraLlevar: true},
+    {id: 56, nombre: 'Torta Aurelia', descripcion: 'Estilo pavlova con dulce de leche, crema chantillí, frutillas y arándanos', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 12000, paraLlevar: true},
+    {id: 57, nombre: 'Torta Dafne', descripcion: 'Estilo marquise con dulce de leche y merengue', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 12000, paraLlevar: true},
+    {id: 58, nombre: 'Torta Greta', descripcion: 'Estilo carrot cake', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 10500, paraLlevar: true},
+    {id: 59, nombre: 'Torta Velvet', descripcion: 'Bizcochuelo red velvet relleno de frosting', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 12000, paraLlevar: true},
+    {id: 60, nombre: 'Torta Bombón', descripcion: 'Bizcochuelo de chocolate con crema de chocolate al coñac', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 12000, paraLlevar: true},
+    {id: 61, nombre: 'Torta Coccó', descripcion: 'Bizcochuelo de coco relleno de brigadeiro', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 12000, paraLlevar: true},
+    {id: 62, nombre: 'Lemon pie', descripcion: 'Crema de limón con merengue', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 10000, paraLlevar: true},
+    {id: 63, nombre: 'Key lime pie', descripcion: 'Crema de lima sobre masa crocante y crema', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 12000, paraLlevar: true},
+    {id: 64, nombre: 'Tarta vasca', descripcion: 'Tarta de queso estilo vasca con reducción de frambuesa', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 12000, paraLlevar: true},
+    {id: 65, nombre: 'Tarta mousse de chocolate', descripcion: '', categoria: 'dulce', seccion: 'Tortas y tartas (porción)', precio: 12000, paraLlevar: true},
+
+    {id: 66, nombre: 'Croissant de jamón crudo', descripcion: 'Jamón crudo, queso y crema de rúcula', categoria: 'salado', seccion: 'Croissants rellenos', precio: 15000, paraLlevar: true},
+    {id: 67, nombre: 'Croissant de salmón ahumado', descripcion: 'Salmón ahumado y queso crema', categoria: 'salado', seccion: 'Croissants rellenos', precio: 15000, paraLlevar: true},
+    {id: 68, nombre: 'Croissant americano', descripcion: 'Queso crema, huevo revuelto y bacon', categoria: 'salado', seccion: 'Croissants rellenos', precio: 15000, paraLlevar: true},
+    {id: 69, nombre: 'Croissant de queso y palta', descripcion: '', categoria: 'salado', seccion: 'Croissants rellenos', precio: 12000, paraLlevar: true},
+    {id: 70, nombre: 'Croissant de jamón cocido, queso y palta', descripcion: '', categoria: 'salado', seccion: 'Croissants rellenos', precio: 10000, paraLlevar: true},
+    {id: 71, nombre: 'Croissant de jamón cocido y queso', descripcion: '', categoria: 'salado', seccion: 'Croissants rellenos', precio: 10000, paraLlevar: true},
+
+    {id: 72, nombre: 'Tostado de jamón y queso', descripcion: 'Pan de masa madre, con papas copetín', categoria: 'salado', seccion: 'Sándwiches', precio: 12500, paraLlevar: true},
+    {id: 73, nombre: 'Tostado de jamón crudo y queso', descripcion: 'Pan de masa madre con manteca, con papas copetín', categoria: 'salado', seccion: 'Sándwiches', precio: 14500, paraLlevar: true},
+    {id: 74, nombre: 'Tostado brioche con cheddar', descripcion: 'Pan brioche, jamón ahumado y cheddar, con papas copetín', categoria: 'salado', seccion: 'Sándwiches', precio: 13500, paraLlevar: true},
+
+    {id: 75, nombre: 'Tostón clásico', descripcion: 'Pan de masa madre, huevo revuelto, queso crema y palta', categoria: 'salado', seccion: 'Tostones', precio: 10000, paraLlevar: true},
+    {id: 76, nombre: 'Tostón brioche con huevo poché', descripcion: 'Pan brioche, queso crema, palta, huevo poché y salsa inglesa', categoria: 'salado', seccion: 'Tostones', precio: 12000, paraLlevar: false},
+    {id: 77, nombre: 'Tostón La Pastelier', descripcion: 'Pan de masa madre, queso crema, puré de palta y jamón bávaro ahumado', categoria: 'salado', seccion: 'Tostones', precio: 12000, paraLlevar: true},
+
+    {id: 78, nombre: 'Clásico', descripcion: 'Infusión, medialuna y jugo de naranja chico', categoria: 'experiencias', seccion: 'Desayunos y meriendas', precio: 7500, paraLlevar: false},
+    {id: 79, nombre: 'La Pastelier', descripcion: 'Infusión y macarrón', categoria: 'experiencias', seccion: 'Desayunos y meriendas', precio: 8000, paraLlevar: false},
+    {id: 80, nombre: 'Desayuno especial', descripcion: 'Infusión, croissant clásico y jugo de naranja', categoria: 'experiencias', seccion: 'Desayunos y meriendas', precio: 10000, paraLlevar: false},
+    {id: 81, nombre: 'Simple y perfecto', descripcion: 'Infusión, tostadas de masa madre con mermelada casera, dulce de leche, queso crema o manteca y jugo de naranja exprimido', categoria: 'experiencias', seccion: 'Desayunos y meriendas', precio: 10500, paraLlevar: false},
+    {id: 82, nombre: 'Lo necesito', descripcion: 'Infusión, tostón de palta y huevo y jugo de naranja', categoria: 'experiencias', seccion: 'Desayunos y meriendas', precio: 14000, paraLlevar: false},
+    {id: 83, nombre: 'Merienda de autor', descripcion: 'Infusión y pastelería', categoria: 'experiencias', seccion: 'Desayunos y meriendas', precio: 15500, paraLlevar: false},
+
+    {id: 84, nombre: 'Brunch clásico', descripcion: 'Infusión, jugo de naranja mediano, croissant de jamón y queso y pastelería del día', categoria: 'experiencias', seccion: 'Brunch', precio: 22000, paraLlevar: false},
+    {id: 85, nombre: 'Brunch La Pastelier', descripcion: 'Infusión, tostada de masa madre con jamón y queso, queso crema, palta, huevos revueltos y bowl de yogur natural con granola y frutas de estación', categoria: 'experiencias', seccion: 'Brunch', precio: 23000, paraLlevar: false},
+    {id: 86, nombre: 'Brunch americano', descripcion: 'Infusión o laminado, tostadas de masa madre o brioche, queso crema, huevo revuelto, panceta ahumada y salchichas alemanas', categoria: 'experiencias', seccion: 'Brunch', precio: 24000, paraLlevar: false},
+
+    {id: 87, nombre: 'Tostada francesa', descripcion: 'Con yogur griego o crema chantillí y frutas de estación', categoria: 'experiencias', seccion: 'Para compartir', precio: 15000, paraLlevar: false},
+    {id: 88, nombre: 'Churros', descripcion: 'Con chocolate, Nutella o dulce de leche a elección', categoria: 'experiencias', seccion: 'Para compartir', precio: 15000, paraLlevar: false},
+    {id: 89, nombre: 'Fondue de chocolate para 2', descripcion: 'Con brownie, frutillas y galletas para acompañar', categoria: 'experiencias', seccion: 'Para compartir', precio: 30000, paraLlevar: false},
+    {id: 90, nombre: 'Torre de Reinas (para 2)', descripcion: '2 infusiones, 2 jugos de naranja o limonadas, porción de torta o tostadas francesas, lunette, profiterol, macarrón, alfajor de maicena, sándwich brioche de jamón y queso, scon de queso, mini avocado toast y mini parís-brest de salmón', categoria: 'experiencias', seccion: 'Para compartir', precio: 49999, paraLlevar: false}
+];
+
+/**
+ * Formatea un precio como moneda argentina, sin decimales (ej: $ 4.500).
+ * @method formatearPrecio
+ * @param {number} precio - Precio que se quiere formatear.
+ * @return {string} Precio formateado como moneda local.
+ */
+const formatearPrecio = (precio) => {
+    return new Intl.NumberFormat('es-AR', {
+        style: 'currency',
+        currency: 'ARS',
+        maximumFractionDigits: 0
+    }).format(precio);
+};

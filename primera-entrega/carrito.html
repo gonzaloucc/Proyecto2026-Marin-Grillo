@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gonzalo Marin, Facundo Grillo">
+    <meta name="description" content="Revisá tu pedido para llevar de La Pastelier y envialo por WhatsApp.">
+    <meta name="keywords" content="la pastelier, take away, carrito, pedido, whatsapp, Córdoba">
+    <title>Tu pedido - La Pastelier</title>
+
+    <link rel="icon" type="image/png" href="imagenes/LOGO.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=block"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <script type="text/javascript" src="productos.js"></script>
+    <script type="text/javascript" src="dialogo.js"></script>
+    <script type="text/javascript" src="carrito.js"></script>
+</head>
+
+<body onload="mostrarCarrito(); cargarHorariosRetiro(); contarProductos()">
+    <header class="cabecera">
+        <div class="contenedor cabecera-contenido">
+            <a href="index.html" class="marca">
+                <img src="imagenes/LOGO.png" alt="Logo de La Pastelier" class="marca-logo">
+                <h1 class="marca-nombre">La Pastelier</h1>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-boton"><span class="material-symbols-rounded icono" aria-hidden="true">menu</span>Menú</label>
+
+            <nav class="navegacion" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="carta.html">Carta</a></li>
+                    <li><a href="index.html#reservas">Reservas</a></li>
+                    <li><a href="pedido.html">Take away</a></li>
+                    <li><a href="index.html#atelier">Tortas Atelier</a></li>
+                    <li><a href="index.html#visitanos">Visitanos</a></li>
+                </ul>
+            </nav>
+
+            <div class="cabecera-acciones">
+                <a href="carrito.html" class="cabecera-carrito" aria-label="Ver mi pedido para llevar">
+                    <span class="material-symbols-rounded" aria-hidden="true">shopping_bag</span>
+                    <span id="cant-prod" class="contador">0</span>
+                </a>
+                <a href="index.html#reservas" class="boton boton-primario cabecera-boton"><span class="material-symbols-rounded icono" aria-hidden="true">calendar_month</span>Reservar</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="seccion seccion-arena carta-pagina">
+            <div class="contenedor">
+                <p class="antetitulo">Take away</p>
+                <h2 class="titulo-seccion">Tu pedido</h2>
+
+                <div id="pedido-armado" class="dos-columnas carrito-columnas">
+                    <div class="panel">
+                        <h3 class="panel-titulo"><span class="material-symbols-rounded icono" aria-hidden="true">shopping_bag</span>Productos</h3>
+                        <div id="carrito"></div>
+                        <a href="pedido.html" class="tarjeta-enlace carrito-seguir"><span class="material-symbols-rounded icono" aria-hidden="true">add</span>Agregar más productos</a>
+                    </div>
+
+                    <div id="formulario-retiro" class="panel panel-formulario">
+                        <form class="formulario">
+                            <h3 class="panel-titulo"><span class="material-symbols-rounded icono" aria-hidden="true">storefront</span>Datos para el retiro</h3>
+                            <p class="campo-ayuda">Retirás hoy en Bv. Elías Yofre 1243. Los campos marcados con * son
+                                obligatorios.</p>
+
+                            <div class="campo">
+                                <label for="nombre-retiro"><span class="material-symbols-rounded icono" aria-hidden="true">person</span>Nombre de quien retira *</label>
+                                <input type="text" id="nombre-retiro" name="nombre-retiro" placeholder="Ej: María López"
+                                       size="30" maxlength="40" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="telefono"><span class="material-symbols-rounded icono" aria-hidden="true">call</span>Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="Ej: 3511234567" size="20"
+                                       maxlength="13" required>
+                                <p class="campo-ayuda">Solo números, sin espacios ni guiones.</p>
+                            </div>
+
+                            <div class="campos-fila">
+                                <div class="campo">
+                                    <label for="horario-retiro"><span class="material-symbols-rounded icono" aria-hidden="true">schedule</span>Horario de retiro *</label>
+                                    <select id="horario-retiro" name="horario-retiro" required></select>
+                                </div>
+
+                                <div class="campo">
+                                    <label for="pago"><span class="material-symbols-rounded icono" aria-hidden="true">payments</span>Forma de pago *</label>
+                                    <select id="pago" name="pago" required>
+                                        <option value="">Elegí una opción</option>
+                                        <option value="Efectivo">Efectivo</option>
+                                        <option value="Transferencia">Transferencia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p class="campo-ayuda">Preparamos tu pedido con al menos 30 minutos de anticipación.</p>
+
+                            <div class="campo">
+                                <label for="aclaraciones"><span class="material-symbols-rounded icono" aria-hidden="true">edit_note</span>Aclaraciones</label>
+                                <textarea id="aclaraciones" name="aclaraciones" rows="3" maxlength="150"
+                                          placeholder="Ej: el latte sin azúcar"></textarea>
+                            </div>
+
+                            <button type="button" class="boton boton-primario" onclick="enviarPedido()"><span class="material-symbols-rounded icono" aria-hidden="true">chat</span>Enviar
+                                pedido por WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="pedido-enviado" class="pedido-enviado">
+                    <div class="panel pedido-enviado-panel">
+                        <span class="pedido-enviado-icono"><span class="material-symbols-rounded" aria-hidden="true">check_circle</span></span>
+                        <h3 class="titulo-categoria">¡Pedido generado!</h3>
+                        <p class="panel-texto">Abrimos WhatsApp con el detalle de tu pedido. A la brevedad La Pastelier se
+                            va a contactar con vos para confirmarlo.</p>
+
+                        <a href="pedido.html" class="boton boton-primario"><span class="material-symbols-rounded icono" aria-hidden="true">shopping_bag</span>Hacer otro pedido</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <dialog id="dialogo-error" class="dialogo">
+        <div class="dialogo-encabezado">
+            <span class="dialogo-icono"><span class="material-symbols-rounded" aria-hidden="true">error</span></span>
+            <div>
+                <h3 id="dialogo-titulo" class="dialogo-titulo">Revisemos los datos</h3>
+                <p id="dialogo-mensaje" class="dialogo-texto">Error: Por favor completá todos los campos obligatorios.
+                </p>
+            </div>
+        </div>
+        <button type="button" class="boton boton-primario boton-ancho" onclick="cerrarDialogo()">Entendido</button>
+    </dialog>
+
+    <footer class="pie">
+        <div class="contenedor pie-contenido">
+            <div>
+                <p class="pie-marca">La Pastelier</p>
+                <p class="pie-texto">Café, tortas y momentos para compartir.</p>
+            </div>
+            <ul class="redes">
+                <li><a href="https://www.instagram.com/lapastelier.cba/" target="_blank" rel="noopener"><span class="material-symbols-rounded icono" aria-hidden="true">photo_camera</span>Instagram</a></li>
+                <li><a href="https://maps.app.goo.gl/PPMGWtvZG7nSE82K6" target="_blank" rel="noopener"><span class="material-symbols-rounded icono" aria-hidden="true">directions</span>Cómo llegar</a></li>
+            </ul>
+        </div>
+        <p class="pie-derechos">&copy; 2026 La Pastelier - Todos los derechos reservados</p>
+    </footer>
+</body>
+
+</html>

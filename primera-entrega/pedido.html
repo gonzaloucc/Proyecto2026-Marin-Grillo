@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gonzalo Marin, Facundo Grillo">
+    <meta name="description" content="Hacé tu pedido para retirar en La Pastelier: café, pastelería y salado para llevar.">
+    <meta name="keywords" content="la pastelier, take away, pedido, para llevar, café, pastelería, Córdoba">
+    <title>Pedí para llevar - La Pastelier</title>
+
+    <link rel="icon" type="image/png" href="imagenes/LOGO.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&amp;display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=block"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <script type="text/javascript" src="productos.js"></script>
+    <script type="text/javascript" src="carrito.js"></script>
+    <script type="text/javascript" src="carta.js"></script>
+</head>
+
+<body onload="iniciarCarta('pedido'); contarProductos()">
+    <header class="cabecera">
+        <div class="contenedor cabecera-contenido">
+            <a href="index.html" class="marca">
+                <img src="imagenes/LOGO.png" alt="Logo de La Pastelier" class="marca-logo">
+                <h1 class="marca-nombre">La Pastelier</h1>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-boton"><span class="material-symbols-rounded icono" aria-hidden="true">menu</span>Menú</label>
+
+            <nav class="navegacion" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="carta.html">Carta</a></li>
+                    <li><a href="index.html#reservas">Reservas</a></li>
+                    <li><a href="pedido.html">Take away</a></li>
+                    <li><a href="index.html#atelier">Tortas Atelier</a></li>
+                    <li><a href="index.html#visitanos">Visitanos</a></li>
+                </ul>
+            </nav>
+
+            <div class="cabecera-acciones">
+                <a href="carrito.html" class="cabecera-carrito" aria-label="Ver mi pedido para llevar">
+                    <span class="material-symbols-rounded" aria-hidden="true">shopping_bag</span>
+                    <span id="cant-prod" class="contador">0</span>
+                </a>
+                <a href="index.html#reservas" class="boton boton-primario cabecera-boton"><span class="material-symbols-rounded icono" aria-hidden="true">calendar_month</span>Reservar</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="seccion seccion-arena carta-pagina">
+            <div class="contenedor">
+                <p class="antetitulo">Take away</p>
+                <h2 class="titulo-seccion">Pedí para llevar</h2>
+                <p class="texto-seccion">Elegí tus productos, completá tus datos y te armamos el pedido para que lo
+                    retires hoy en el local. Nos llega directo a nuestro WhatsApp.</p>
+
+                <ol class="pasos-pedido">
+                    <li><span class="material-symbols-rounded icono" aria-hidden="true">shopping_bag</span>Elegí tus productos</li>
+                    <li><span class="material-symbols-rounded icono" aria-hidden="true">edit_note</span>Completá tus datos</li>
+                    <li><span class="material-symbols-rounded icono" aria-hidden="true">chat</span>Enviá el pedido por WhatsApp</li>
+                </ol>
+
+                <div class="carta-filtros">
+                    <fieldset class="filtro-grupo">
+                        <legend class="filtro-titulo">Filtrar por categoría</legend>
+                        <input type="radio" id="filtro-todo" name="filtro" value="todo" class="filtro-radio" checked
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-todo" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">menu_book</span>Todo</label>
+                        <input type="radio" id="filtro-bebidas" name="filtro" value="bebidas" class="filtro-radio"
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-bebidas" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">local_cafe</span>Bebidas</label>
+                        <input type="radio" id="filtro-comer" name="filtro" value="comer" class="filtro-radio"
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-comer" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">restaurant</span>Dulce y salado</label>
+                        <input type="radio" id="filtro-dulce" name="filtro" value="dulce" class="filtro-radio"
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-dulce" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">bakery_dining</span>Dulce</label>
+                        <input type="radio" id="filtro-salado" name="filtro" value="salado" class="filtro-radio"
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-salado" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">egg_alt</span>Salado</label>
+                    </fieldset>
+
+                    <div class="buscador">
+                        <label for="buscador" class="filtro-titulo">Buscar en la carta</label>
+                        <div class="buscador-campo">
+                            <span class="material-symbols-rounded icono" aria-hidden="true">search</span>
+                            <input type="text" id="buscador" name="buscador" placeholder="Ej: pistacho, palta, brunch"
+                                   size="25" maxlength="30" oninput="filtrarCarta()">
+                        </div>
+                    </div>
+                </div>
+
+                <p id="carta-vacia" class="carta-vacia">No encontramos productos con ese filtro. Probá con otra palabra o
+                    categoría.</p>
+
+                <div id="categoria-bebidas" class="carta-categoria">
+                    <div class="carta-categoria-encabezado">
+                        <img src="imagenes/cafe2.jpeg" alt="Café con arte latte servido en taza de porcelana" class="carta-categoria-imagen">
+                        <div>
+                            <p class="antetitulo">01 · Para tomar</p>
+                            <h3 class="titulo-categoria">Bebidas</h3>
+                            <p class="carta-categoria-texto">Café de especialidad, opciones frías, té en hebras, limonadas y licuados.</p>
+                        </div>
+                    </div>
+                    <div id="lista-bebidas" class="carta-secciones"></div>
+                </div>
+
+                <div id="categoria-dulce" class="carta-categoria">
+                    <div class="carta-categoria-encabezado">
+                        <img src="imagenes/05_cookies_artesanales.png" alt="Cookies artesanales de pistacho, Nutella, red velvet y Oreo" class="carta-categoria-imagen">
+                        <div>
+                            <p class="antetitulo">02 · Para comer</p>
+                            <h3 class="titulo-categoria">Dulce</h3>
+                            <p class="carta-categoria-texto">Laminados, pastelería individual y porciones de nuestras tortas.</p>
+                        </div>
+                    </div>
+                    <div id="lista-dulce" class="carta-secciones"></div>
+                </div>
+
+                <div id="categoria-salado" class="carta-categoria">
+                    <div class="carta-categoria-encabezado">
+                        <img src="imagenes/15_toston_masa_madre_palta_huevo.png" alt="Tostón de masa madre con huevos revueltos, queso crema y palta" class="carta-categoria-imagen">
+                        <div>
+                            <p class="antetitulo">02 · Para comer</p>
+                            <h3 class="titulo-categoria">Salado</h3>
+                            <p class="carta-categoria-texto">Croissants rellenos, sándwiches tostados y tostones de masa madre.</p>
+                        </div>
+                    </div>
+                    <div id="lista-salado" class="carta-secciones"></div>
+                </div>
+
+                <p class="nota">Solo retiro en el local (Bv. Elías Yofre 1243) y para el mismo día. El pago se
+                    hace al retirar.</p>
+
+                <div id="resumen-pedido" class="resumen-pedido">
+                    <p><span class="material-symbols-rounded icono" aria-hidden="true">shopping_bag</span><span id="resumen-cantidad">0 productos</span> ·
+                        <strong id="resumen-total">$ 0</strong></p>
+                    <a href="carrito.html" class="boton boton-claro">Ver mi pedido<span class="material-symbols-rounded icono" aria-hidden="true">arrow_forward</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor pie-contenido">
+            <div>
+                <p class="pie-marca">La Pastelier</p>
+                <p class="pie-texto">Café, tortas y momentos para compartir.</p>
+            </div>
+            <ul class="redes">
+                <li><a href="https://www.instagram.com/lapastelier.cba/" target="_blank" rel="noopener"><span class="material-symbols-rounded icono" aria-hidden="true">photo_camera</span>Instagram</a></li>
+                <li><a href="https://maps.app.goo.gl/PPMGWtvZG7nSE82K6" target="_blank" rel="noopener"><span class="material-symbols-rounded icono" aria-hidden="true">directions</span>Cómo llegar</a></li>
+            </ul>
+        </div>
+        <p class="pie-derechos">&copy; 2026 La Pastelier - Todos los derechos reservados</p>
+    </footer>
+</body>
+
+</html>
