@@ -24,7 +24,7 @@
     <script type="text/javascript" src="carta.js"></script>
 </head>
 
-<body onload="mostrarCarta()">
+<body onload="iniciarCarta()">
     <header class="cabecera">
         <div class="contenedor cabecera-contenido">
             <a href="index.html" class="marca">
@@ -56,14 +56,43 @@
                 <p class="texto-seccion">Café de especialidad, pastelería de autor, cocina salada y experiencias para
                     compartir. Todo hecho en casa.</p>
 
-                <nav class="carta-indice" aria-label="Categorías de la carta">
-                    <a href="#bebidas"><span class="material-symbols-rounded icono" aria-hidden="true">local_cafe</span>Bebidas</a>
-                    <a href="#dulce"><span class="material-symbols-rounded icono" aria-hidden="true">bakery_dining</span>Dulce</a>
-                    <a href="#salado"><span class="material-symbols-rounded icono" aria-hidden="true">egg_alt</span>Salado</a>
-                    <a href="#experiencias"><span class="material-symbols-rounded icono" aria-hidden="true">brunch_dining</span>Experiencias</a>
-                </nav>
+                <div class="carta-filtros">
+                    <fieldset class="filtro-grupo">
+                        <legend class="filtro-titulo">Filtrar por categoría</legend>
+                        <input type="radio" id="filtro-todo" name="filtro" value="todo" class="filtro-radio" checked
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-todo" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">menu_book</span>Todo</label>
+                        <input type="radio" id="filtro-bebidas" name="filtro" value="bebidas" class="filtro-radio"
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-bebidas" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">local_cafe</span>Bebidas</label>
+                        <input type="radio" id="filtro-comer" name="filtro" value="comer" class="filtro-radio"
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-comer" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">restaurant</span>Dulce y salado</label>
+                        <input type="radio" id="filtro-dulce" name="filtro" value="dulce" class="filtro-radio"
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-dulce" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">bakery_dining</span>Dulce</label>
+                        <input type="radio" id="filtro-salado" name="filtro" value="salado" class="filtro-radio"
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-salado" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">egg_alt</span>Salado</label>
+                        <input type="radio" id="filtro-experiencias" name="filtro" value="experiencias" class="filtro-radio"
+                               onchange="cambiarFiltro(this.value)">
+                        <label for="filtro-experiencias" class="filtro-pastilla"><span class="material-symbols-rounded icono" aria-hidden="true">brunch_dining</span>Experiencias</label>
+                    </fieldset>
 
-                <div id="bebidas" class="carta-categoria">
+                    <div class="buscador">
+                        <label for="buscador" class="filtro-titulo">Buscar en la carta</label>
+                        <div class="buscador-campo">
+                            <span class="material-symbols-rounded icono" aria-hidden="true">search</span>
+                            <input type="text" id="buscador" name="buscador" placeholder="Ej: pistacho, palta, brunch"
+                                   size="25" maxlength="30" oninput="filtrarCarta()">
+                        </div>
+                    </div>
+                </div>
+
+                <p id="carta-vacia" class="carta-vacia">No encontramos productos con ese filtro. Probá con otra palabra o
+                    categoría.</p>
+
+                <div id="categoria-bebidas" class="carta-categoria">
                     <div class="carta-categoria-encabezado">
                         <img src="imagenes/cafe2.jpeg" alt="Café con arte latte servido en taza de porcelana" class="carta-categoria-imagen">
                         <div>
@@ -75,7 +104,7 @@
                     <div id="lista-bebidas" class="carta-secciones"></div>
                 </div>
 
-                <div id="dulce" class="carta-categoria">
+                <div id="categoria-dulce" class="carta-categoria">
                     <div class="carta-categoria-encabezado">
                         <img src="imagenes/05_cookies_artesanales.png" alt="Cookies artesanales de pistacho, Nutella, red velvet y Oreo" class="carta-categoria-imagen">
                         <div>
@@ -87,7 +116,7 @@
                     <div id="lista-dulce" class="carta-secciones"></div>
                 </div>
 
-                <div id="salado" class="carta-categoria">
+                <div id="categoria-salado" class="carta-categoria">
                     <div class="carta-categoria-encabezado">
                         <img src="imagenes/15_toston_masa_madre_palta_huevo.png" alt="Tostón de masa madre con huevos revueltos, queso crema y palta" class="carta-categoria-imagen">
                         <div>
@@ -99,7 +128,7 @@
                     <div id="lista-salado" class="carta-secciones"></div>
                 </div>
 
-                <div id="experiencias" class="carta-categoria">
+                <div id="categoria-experiencias" class="carta-categoria">
                     <div class="carta-categoria-encabezado">
                         <img src="imagenes/merienda.jpeg" alt="Mesa de merienda con cafés, porciones de torta y tostadas" class="carta-categoria-imagen">
                         <div>

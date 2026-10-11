@@ -144,19 +144,46 @@ iframe {
     max-width: 680px;
 }
 
-.carta-indice {
+.carta-filtros {
     position: sticky;
     top: 77px;
     z-index: 50;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
-    padding: 0.9rem 0;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding: 1rem 0;
     background-color: var(--color-arena);
     border-bottom: 1px solid var(--color-borde);
 }
 
-.carta-indice a {
+.filtro-grupo {
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filtro-titulo {
+    width: 100%;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-kicker);
+}
+
+/* El radio se oculta visualmente pero sigue siendo accesible con el teclado */
+.filtro-radio {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.filtro-pastilla {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -166,17 +193,69 @@ iframe {
     background-color: var(--color-fondo);
     color: var(--color-chocolate);
     font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicion);
 }
 
-.carta-indice a:hover {
+.filtro-pastilla:hover {
+    border-color: var(--color-primario);
+}
+
+/* Pseudoclase :checked para marcar la categoria elegida */
+.filtro-radio:checked + .filtro-pastilla {
     background-color: var(--color-primario);
     border-color: var(--color-primario);
     color: var(--color-blanco);
 }
 
+.filtro-radio:focus-visible + .filtro-pastilla {
+    box-shadow: 0 0 0 3px rgba(110, 57, 56, 0.25);
+}
+
+.buscador {
+    display: flex;
+    flex-direction: column;
+}
+
+.buscador-campo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radio-boton);
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-kicker);
+    transition: var(--transicion);
+}
+
+/* Pseudoclase :focus-within para resaltar el buscador mientras se escribe */
+.buscador-campo:focus-within {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(110, 57, 56, 0.15);
+}
+
+.buscador-campo input {
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    color: var(--color-chocolate);
+    width: 100%;
+}
+
+.carta-vacia {
+    display: none;
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: var(--radio-tarjeta);
+    border: 1px dashed var(--color-borde);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
 .carta-categoria {
     margin-top: 3.5rem;
-    scroll-margin-top: 150px;
 }
 
 .carta-categoria-encabezado {
@@ -858,6 +937,14 @@ iframe {
    12. RESPONSIVE DESIGN (MEDIA QUERIES)
    -------------------------------------------------------------------------- */
 @media (max-width: 860px) {
+    .carta-filtros {
+        position: static;
+    }
+
+    .buscador {
+        width: 100%;
+    }
+
     .dos-columnas {
         grid-template-columns: 1fr;
         gap: 2.5rem;
