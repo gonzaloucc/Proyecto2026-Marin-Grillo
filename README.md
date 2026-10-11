@@ -12,7 +12,8 @@ Sitio web institucional y catálogo interactivo para la cafetería y pastelería
 2. [Tecnologías Utilizadas](#tecnologías-utilizadas)
 3. [Integrantes del Equipo](#integrantes-del-equipo)
 4. [Prototipos del Diseño](#prototipos-del-diseño)
-5. [Despliegue en GitHub Pages](#despliegue-en-github-pages)
+5. [Estructura de Archivos](#estructura-de-archivos)
+6. [Despliegue en GitHub Pages](#despliegue-en-github-pages)
 
 ---
 
@@ -40,7 +41,7 @@ El sitio web cuenta con las siguientes secciones:
   - **Horarios de Atención:**
     - **Martes a Domingo:** 8:30 a 14:00 hs y 16:00 a 21:00 hs.
     - **Lunes:** 16:00 a 21:00 hs.
-- **Pie de Página (Footer):** Íconos con enlaces a Instagram, Facebook, WhatsApp y Google Maps.
+- **Pie de Página (Footer):** Íconos con enlaces a Instagram, Facebook, WhatsApp, Google Maps y a las reseñas de Google para dejar una opinión.
 
 ---
 
@@ -48,10 +49,12 @@ El sitio web cuenta con las siguientes secciones:
 
 | Tecnología | Descripción | Uso en el Proyecto |
 | :--- | :--- | :--- |
-| **HTML5** | Lenguaje de marcado semántico | Estructura base del sitio y formularios accesibles |
-| **CSS3** | Hojas de estilo en cascada | Diseño responsivo, tipografía, paleta de colores y layouts |
-| **JavaScript (ES6+)** | Lenguaje de programación del cliente | Validación de formularios, renderizado de la carta, filtros, carrito con `localStorage` y generación del mensaje del pedido |
-| **Git & GitHub** | Control de versiones | Gestión colaborativa del código mediante ramas y conventional commits |
+| **HTML5** | Lenguaje de marcado semántico | Estructura del sitio, navegación, cartas y formularios accesibles |
+| **CSS3** | Hojas de estilo en cascada | Diseño responsivo, tipografía, paleta de colores y componentes reutilizables |
+| **JavaScript (ES6+)** | Lenguaje de programación del cliente | Validaciones, renderizado de productos, filtros, buscador, carrito y generación del mensaje del pedido |
+| **Web Storage API** | Almacenamiento del navegador | Persistencia del carrito mediante `localStorage` |
+| **Google Fonts** | Recursos tipográficos e iconos | Tipografía Alegreya e iconos Material Symbols |
+| **Git & GitHub** | Control de versiones | Gestión colaborativa mediante ramas, Pull Requests y conventional commits |
 
 ---
 
@@ -73,9 +76,28 @@ Los prototipos de baja y alta fidelidad requeridos para la entrega se encuentran
 
 ---
 
+## Estructura de Archivos
+
+La entrega principal se encuentra organizada dentro de `primera-entrega/`:
+
+- `index.html`: página principal, reservas, ubicación y presentación del sitio.
+- `carta.html`: carta digital con productos, categorías, filtros y buscador.
+- `pedido.html`: selección de productos para pedidos take away.
+- `carrito.html`: resumen del carrito y formulario del pedido.
+- `estilo.css`: estilos generales y diseño responsive.
+- `productos.js`: listado de productos y precios.
+- `carta.js`: renderizado, filtros y búsqueda de productos.
+- `carrito.js`: gestión del carrito, `localStorage` y generación del pedido.
+- `reserva.js`: validación y resumen de reservas.
+- `dialogo.js`: mensajes de error mediante diálogos.
+- `imagenes/`: imágenes utilizadas por el sitio.
+- `Sketch/` y `Mockup/`: prototipos de escritorio, mobile y mensajes de error.
+
+---
+
 ## Despliegue en GitHub Pages
 
 El sitio se publicará en GitHub Pages una vez configurada la fuente de publicación del repositorio:
 - **Sitio en vivo:** [https://gonzaloucc.github.io/Proyecto2026-Marin-Grillo-Gimenez/primera-entrega/](https://gonzaloucc.github.io/Proyecto2026-Marin-Grillo-Gimenez/primera-entrega/)
 
-La publicación queda pendiente de habilitarse desde la configuración de GitHub Pages del repositorio.
+La publicación queda pendiente de habilitarse desde la configuración de GitHub Pages del repositorio. La página principal de la entrega se encuentra en `primera-entrega/index.html`.
