@@ -19,23 +19,28 @@ Sitio web institucional y catálogo interactivo para la cafetería y pastelería
 ## Descripción del Proyecto
 
 ### Propósito del Sitio
-El propósito principal de la página es visibilizar la propuesta gastronómica de **La Pastelier**, facilitando el acceso a sus cartas digitales (café de especialidad, tortas clásicas y tortas personalizadas de atelier), información de contacto, horarios y ubicación física del local, junto con un módulo interactivo para gestionar reservas.
+El propósito principal de la página es visibilizar la propuesta gastronómica de **La Pastelier**, facilitando el acceso a su carta digital (café de especialidad, pastelería, cocina salada y experiencias), las tortas personalizadas de atelier, información de contacto, horarios y ubicación física del local, junto con módulos interactivos para reservar una mesa y hacer pedidos para llevar.
 
 ### Estructura y Contenido
 El sitio web cuenta con las siguientes secciones:
-- **Encabezado y Navegación:** Barra con logotipo y accesos directos a las distintas áreas.
-- **Hero / Portada:** Presentación de la marca con llamadas a la acción (*Call to Action*).
-- **Cartas de Productos:**
-  - Carta de café de especialidad con detalle de variedades y precios.
-  - Carta de tortas y porciones artesanales.
-  - Tortas Atelier (línea a pedido para bodas, cumpleaños y eventos).
-- **Reservas (Módulo Interactivo):** Permite al usuario ingresar sus datos, seleccionar una fecha y un horario, y consultar el resumen de su reserva.
+- **Encabezado y Navegación:** Barra con logotipo, accesos directos a las distintas áreas y un ícono con la cantidad de productos del pedido.
+- **Hero / Portada:** Presentación de la marca con llamadas a la acción (*Call to Action*): ver la carta, reservar y pedir para llevar.
+- **Carta (`carta.html`):**
+  - Tres accesos desde el inicio: Bebidas, Dulce y salado, y Experiencias.
+  - Carta completa generada con JavaScript a partir de un listado de productos.
+  - Filtros por categoría y buscador por palabra.
+- **Reservas (Módulo Interactivo):** Formulario con nombre, cantidad de personas, fecha (hasta 14 días desde hoy) y horario. Valida los datos, muestra un mensaje de error en un diálogo y genera el resumen de la reserva.
+- **Take away (`pedido.html` y `carrito.html`):**
+  - Catálogo de productos para llevar con selector de cantidad.
+  - Carrito guardado en `localStorage`, con subtotales y total.
+  - Formulario de retiro en el local (solo para el mismo día) que genera el mensaje del pedido, lo muestra en la consola y abre el chat de WhatsApp.
+- **Tortas Atelier:** Línea a pedido para bodas, cumpleaños y eventos, con consulta directa por WhatsApp.
 - **Ubicación y Horarios:**
   - **Dirección:** Bv. Elías Yofre 1243, Barrio Jardín, X5014 Córdoba, Argentina ([Ver en Google Maps](https://maps.app.goo.gl/PPMGWtvZG7nSE82K6)).
   - **Horarios de Atención:**
     - **Martes a Domingo:** 8:30 a 14:00 hs y 16:00 a 21:00 hs.
     - **Lunes:** 16:00 a 21:00 hs.
-- **Pie de Página (Footer):** Enlaces directos a Instagram y Google Maps.
+- **Pie de Página (Footer):** Íconos con enlaces a Instagram, Facebook, WhatsApp y Google Maps.
 
 ---
 
@@ -45,7 +50,7 @@ El sitio web cuenta con las siguientes secciones:
 | :--- | :--- | :--- |
 | **HTML5** | Lenguaje de marcado semántico | Estructura base del sitio y formularios accesibles |
 | **CSS3** | Hojas de estilo en cascada | Diseño responsivo, tipografía, paleta de colores y layouts |
-| **JavaScript (ES6+)** | Lenguaje de programación del cliente | Validación del formulario y generación del resumen de reservas |
+| **JavaScript (ES6+)** | Lenguaje de programación del cliente | Validación de formularios, renderizado de la carta, filtros, carrito con `localStorage` y generación del mensaje del pedido |
 | **Git & GitHub** | Control de versiones | Gestión colaborativa del código mediante ramas y conventional commits |
 
 ---
@@ -71,6 +76,6 @@ Los prototipos de baja y alta fidelidad requeridos para la entrega se encuentran
 ## Despliegue en GitHub Pages
 
 El sitio se publicará en GitHub Pages una vez configurada la fuente de publicación del repositorio:
-- **Sitio en vivo:** [https://gonzaloucc.github.io/Proyecto2026-Marin-Grillo/](https://gonzaloucc.github.io/Proyecto2026-Marin-Grillo/)
+- **Sitio en vivo:** [https://gonzaloucc.github.io/Proyecto2026-Marin-Grillo-Gimenez/primera-entrega/](https://gonzaloucc.github.io/Proyecto2026-Marin-Grillo-Gimenez/primera-entrega/)
 
 La publicación queda pendiente de habilitarse desde la configuración de GitHub Pages del repositorio.
