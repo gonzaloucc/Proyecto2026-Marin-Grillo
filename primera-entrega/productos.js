@@ -6,7 +6,7 @@ const productos = [
     {id: 5, nombre: 'Lágrima', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 5000, paraLlevar: true},
     {id: 6, nombre: 'Latte', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 5000, paraLlevar: true},
     {id: 7, nombre: 'Latte saborizado', descripcion: 'Vainilla, caramelo o avellana', categoria: 'bebidas', seccion: 'Café', precio: 6500, paraLlevar: true},
-    {id: 8, nombre: 'Mocha', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 5200, paraLlevar: true},
+    {id: 8, nombre: 'Mocka', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 5200, paraLlevar: true},
     {id: 9, nombre: 'Chocolate caliente', descripcion: '', categoria: 'bebidas', seccion: 'Café', precio: 5500, paraLlevar: true},
 
     {id: 10, nombre: 'Iced Latte', descripcion: '', categoria: 'bebidas', seccion: 'Cafés fríos', precio: 6500, paraLlevar: true},
