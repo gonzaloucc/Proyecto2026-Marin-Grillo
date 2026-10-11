@@ -578,7 +578,7 @@ iframe {
 #inicio {
     position: relative;
     background: linear-gradient(rgba(56, 32, 30, 0.75), rgba(56, 32, 30, 0.85)),
-                url('imagenes/principal_imagen_sec1.png') center/cover no-repeat;
+                url('imagenes/portada-local.png') center/cover no-repeat;
     color: var(--color-fondo);
     padding: 7rem 0 6rem 0;
     text-align: left;
