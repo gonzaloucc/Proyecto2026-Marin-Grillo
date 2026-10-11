@@ -19,6 +19,8 @@
           rel="stylesheet">
 
     <link rel="stylesheet" href="estilo.css">
+
+    <script type="text/javascript" src="reserva.js"></script>
 </head>
 
 <body onload="configurarFechaReserva()">
@@ -232,7 +234,7 @@
     </main>
 
     <!-- Diálogo de error de la reserva -->
-    <dialog id="dialogo-error" class="dialogo" onclose="enfocarCampoConError()">
+    <dialog id="dialogo-error" class="dialogo">
         <div class="dialogo-encabezado">
             <span class="dialogo-icono"><span class="material-symbols-rounded" aria-hidden="true">error</span></span>
             <div>
@@ -240,9 +242,7 @@
                 <p id="dialogo-mensaje" class="dialogo-texto">Error: Por favor completá todos los campos obligatorios.</p>
             </div>
         </div>
-        <form method="dialog">
-            <button type="submit" class="boton boton-primario boton-ancho">Entendido</button>
-        </form>
+        <button type="button" class="boton boton-primario boton-ancho" onclick="cerrarDialogo()">Entendido</button>
     </dialog>
 
     <!-- Pie de página -->
@@ -259,8 +259,6 @@
         </div>
         <p class="pie-derechos">&copy; 2026 La Pastelier - Todos los derechos reservados</p>
     </footer>
-
-    <script src="reserva.js"></script>
 </body>
 
 </html>
