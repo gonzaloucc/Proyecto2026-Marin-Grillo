@@ -97,7 +97,7 @@ La entrega principal se encuentra organizada dentro de `primera-entrega/`:
 
 ## Despliegue en GitHub Pages
 
-El sitio se publicará en GitHub Pages una vez configurada la fuente de publicación del repositorio:
-- **Sitio en vivo:** [https://gonzaloucc.github.io/Proyecto2026-Marin-Grillo-Gimenez/primera-entrega/](https://gonzaloucc.github.io/Proyecto2026-Marin-Grillo-Gimenez/primera-entrega/)
+El sitio está publicado en GitHub Pages desde la rama `main`:
+- **Sitio en vivo:** [https://gonzaloucc.github.io/Proyecto2026-Marin-Grillo/](https://gonzaloucc.github.io/Proyecto2026-Marin-Grillo/)
 
-La publicación queda pendiente de habilitarse desde la configuración de GitHub Pages del repositorio. La página principal de la entrega se encuentra en `primera-entrega/index.html`.
+La página principal de la entrega se encuentra en `primera-entrega/index.html`. El `index.html` de la raíz del repositorio redirige automáticamente a esa carpeta.
