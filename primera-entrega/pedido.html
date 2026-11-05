@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="estilo.css">
 
     <script type="text/javascript" src="productos.js"></script>
+    <script type="text/javascript" src="dialogo.js"></script>
     <script type="text/javascript" src="carrito.js"></script>
     <script type="text/javascript" src="carta.js"></script>
 </head>
@@ -150,6 +151,18 @@
             </div>
         </section>
     </main>
+
+    <dialog id="dialogo-error" class="dialogo">
+        <div class="dialogo-encabezado">
+            <span class="dialogo-icono"><span class="material-symbols-rounded" aria-hidden="true">error</span></span>
+            <div>
+                <h3 id="dialogo-titulo" class="dialogo-titulo">Revisemos los datos</h3>
+                <p id="dialogo-mensaje" class="dialogo-texto">Error: Por favor completá todos los campos obligatorios.
+                </p>
+            </div>
+        </div>
+        <button type="button" class="boton boton-primario boton-ancho" onclick="cerrarDialogo()">Entendido</button>
+    </dialog>
 
     <footer class="pie">
         <div class="contenedor pie-contenido">

@@ -1124,6 +1124,20 @@ iframe {
     color: var(--color-primario);
 }
 
+/* Estado cuando se alcanza el límite superior de cantidad de un producto */
+.boton-agregar.limite-alcanzado,
+.boton-cantidad.limite-alcanzado {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.boton-agregar.limite-alcanzado:hover,
+.boton-cantidad.limite-alcanzado:hover {
+    transform: none;
+    border-color: var(--color-borde);
+    color: inherit;
+}
+
 .carrito-total {
     display: flex;
     justify-content: space-between;

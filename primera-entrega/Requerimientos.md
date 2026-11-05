@@ -72,7 +72,7 @@
 - [ ] Todas las imágenes deben ser incluidas en el repositorio dentro de una carpeta llamada **imagenes** (salvo que sean demasiado pesadas. En ese caso, se puede emplear un servidor externo).
 - [ ] No se deben subir videos en el repositorio (excepto que sean MUY livianos).
 - [ ] Toda imagen debe tener su atributo alt
-- [ ] Las imágenes deben poseer un nombre representativo 
+- [x] Las imágenes deben poseer un nombre representativo 
 
 ## Sobre el CSS
 - [ ] El estilo de los elementos debe establecerse en un archivo CSS (prohibido poner el atributo style a los elementos o emplear estilos incrustados).
