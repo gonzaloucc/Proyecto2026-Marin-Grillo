@@ -44,8 +44,14 @@ const mostrarCategoria = (categoria, lista) => {
             let boton = '';
 
             if (esPedido) {
-                boton = `<button type="button" class="boton-agregar" onclick="agregarAlCarrito(${producto.id})"
-                    aria-label="Agregar ${producto.nombre} al pedido">
+                const claseLimite = cantidad >= LIMITE_CANTIDAD_PRODUCTO ? ' limite-alcanzado' : '';
+                const tituloBoton = cantidad >= LIMITE_CANTIDAD_PRODUCTO
+                    ? 'Límite máximo alcanzado (' + LIMITE_CANTIDAD_PRODUCTO + ' unidades)'
+                    : 'Agregar ' + producto.nombre + ' al pedido';
+
+                boton = `<button type="button" class="boton-agregar${claseLimite}" onclick="agregarAlCarrito(${producto.id})"
+                    aria-label="Agregar ${producto.nombre} al pedido"
+                    title="${tituloBoton}">
                     <span class="material-symbols-rounded" aria-hidden="true">add</span>
                 </button>`;
             }

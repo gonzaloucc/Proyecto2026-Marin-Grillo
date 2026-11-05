@@ -70,7 +70,7 @@ El sitio web cuenta con las siguientes secciones:
 ## Prototipos del Diseño
 
 Los prototipos de baja y alta fidelidad requeridos para la entrega se encuentran organizados en las siguientes carpetas:
-- **Sketch (Papel):** Disponibles en [`primera-entrega/Sketch/`](primera-entrega/Sketch/) en versiones Desktop y Mobile.
+- **Sketch (Papel):** Disponibles en [`primera-entrega/Sketch/`](primera-entrega/Sketch/) en versiones Desktop ([`sketch-desktop.png`](primera-entrega/Sketch/sketch-desktop.png)) y Mobile ([`sketch-mobile.png`](primera-entrega/Sketch/sketch-mobile.png)).
 - **Mockup (Digital):** Diseñados en Canva con versiones Desktop, Mobile y estados de error. Por su tamaño, los PDF están en Google Drive; el enlace se encuentra en [`primera-entrega/Mockup/enlacedrive.txt`](primera-entrega/Mockup/enlacedrive.txt).
 - **Prototipo Interactivo en Canva:** [Ver prototipo online](https://sketchproyecto.my.canva.site)
 

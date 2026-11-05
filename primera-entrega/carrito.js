@@ -1,4 +1,5 @@
 const TELEFONO_WHATSAPP = '5493510000000';
+const LIMITE_CANTIDAD_PRODUCTO = 10;
 const HORARIOS_RETIRO = [
     '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30',
     '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30'
@@ -61,12 +62,24 @@ const actualizarPagina = () => {
 
 /**
  * Agrega una unidad de un producto al carrito y lo guarda en el localStorage.
+ * Si el producto alcanzó el límite máximo permitido, muestra un diálogo de advertencia.
  * @method agregarAlCarrito
  * @param {number} id - Id del producto que se quiere agregar.
  * @return {void}
  */
 const agregarAlCarrito = (id) => {
     const carritoList = obtenerCarrito();
+    const cantidadActual = carritoList.filter((item) => item === id).length;
+
+    if (cantidadActual >= LIMITE_CANTIDAD_PRODUCTO) {
+        if (typeof mostrarError === 'function') {
+            const producto = productos.find((item) => item.id === id);
+            const nombre = producto ? producto.nombre : 'este producto';
+            mostrarError(null, 'Límite de cantidad alcanzado',
+                'Podés pedir hasta un máximo de ' + LIMITE_CANTIDAD_PRODUCTO + ' unidades de "' + nombre + '".');
+        }
+        return;
+    }
 
     carritoList.push(id);
     localStorage.setItem('carrito', JSON.stringify(carritoList));
@@ -135,6 +148,11 @@ const mostrarCarrito = () => {
         const cantidad = carritoList.filter((item) => item === id).length;
         const subtotal = producto.precio * cantidad;
 
+        const claseLimite = cantidad >= LIMITE_CANTIDAD_PRODUCTO ? ' limite-alcanzado' : '';
+        const tituloBoton = cantidad >= LIMITE_CANTIDAD_PRODUCTO
+            ? 'Límite máximo alcanzado (' + LIMITE_CANTIDAD_PRODUCTO + ' unidades)'
+            : 'Agregar una unidad de ' + producto.nombre;
+
         total += subtotal;
         contenido += `<li class="carrito-item">
             <div class="carta-item-texto">
@@ -147,8 +165,9 @@ const mostrarCarrito = () => {
                     <span class="material-symbols-rounded" aria-hidden="true">remove</span>
                 </button>
                 <span>${cantidad}</span>
-                <button type="button" class="boton-cantidad" onclick="agregarAlCarrito(${id})"
-                    aria-label="Agregar una unidad de ${producto.nombre}">
+                <button type="button" class="boton-cantidad${claseLimite}" onclick="agregarAlCarrito(${id})"
+                    aria-label="Agregar una unidad de ${producto.nombre}"
+                    title="${tituloBoton}">
                     <span class="material-symbols-rounded" aria-hidden="true">add</span>
                 </button>
             </div>
@@ -282,6 +301,19 @@ const enviarPedido = () => {
 
     if (obtenerCarrito().length === 0) {
         return mostrarError(null, 'Tu pedido está vacío', 'Agregá al menos un producto antes de enviar el pedido.');
+    }
+
+    const carritoActual = obtenerCarrito();
+    const conteo = {};
+    for (let i = 0; i < carritoActual.length; i++) {
+        const idProd = carritoActual[i];
+        conteo[idProd] = (conteo[idProd] || 0) + 1;
+        if (conteo[idProd] > LIMITE_CANTIDAD_PRODUCTO) {
+            const producto = productos.find((item) => item.id === idProd);
+            const nombre = producto ? producto.nombre : 'un producto';
+            return mostrarError(null, 'Límite de cantidad superado',
+                'El producto "' + nombre + '" supera el límite máximo de ' + LIMITE_CANTIDAD_PRODUCTO + ' unidades.');
+        }
     }
 
     if (nombre.value.trim() === '') {
