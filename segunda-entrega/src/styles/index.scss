@@ -117,3 +117,110 @@ button {
 .boton-ancho {
     width: 100%;
 }
+
+// Fondos de sección
+.seccion-arena {
+    background-color: $color-arena;
+}
+
+.seccion-crema {
+    background-color: $color-crema;
+}
+
+.seccion-vino {
+    background-color: $color-chocolate;
+    color: $color-fondo;
+}
+
+.dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+
+    @media (max-width: $tablet) {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+// Textos
+.antetitulo {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $color-kicker;
+    margin-bottom: 0.5rem;
+}
+
+.antetitulo-claro {
+    color: $color-claro-suave;
+}
+
+.titulo-claro {
+    color: $color-fondo;
+}
+
+.texto-seccion {
+    font-size: 1.1rem;
+    color: $color-texto;
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.nota {
+    font-size: 0.95rem;
+    color: $color-kicker;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.separador {
+    border: 0;
+    height: 1px;
+    background-color: $color-borde-claro;
+    margin: 1.5rem 0;
+}
+
+.separador-oscuro {
+    background-color: $color-borde;
+}
+
+// Paneles
+.panel {
+    background-color: $color-fondo;
+    border-radius: $radio-tarjeta;
+    padding: 2.2rem;
+    box-shadow: $sombra-suave;
+    border: 1px solid $color-borde;
+}
+
+.panel-titulo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $color-chocolate;
+}
+
+.panel-texto {
+    color: $color-texto;
+    font-size: 1.05rem;
+}
+
+// Link con flecha (tarjetas y paneles)
+.tarjeta-enlace {
+    font-weight: 600;
+    color: $color-primario;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    &:hover {
+        color: $color-primario-hover;
+        transform: translateX(4px);
+    }
+}
