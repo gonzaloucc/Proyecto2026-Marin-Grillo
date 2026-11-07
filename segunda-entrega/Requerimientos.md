@@ -2,8 +2,8 @@
 
 
 ## Sobre Readme.md
-- [ ] Actualizar el readme.md para incluir pasos de ejecución del proyecto
-- [ ] Actualizar tecnologías usadas
+- [x] Actualizar el readme.md para incluir pasos de ejecución del proyecto
+- [x] Actualizar tecnologías usadas
 
 ## Sobre Package
 - Incluir los scripts necesarios para ejecución del proyecto y mock de servicios
