@@ -46,12 +46,16 @@ const Layout = () => {
             .filter((itemCarrito) => itemCarrito.cantidad > 0))
     }
 
+    const vaciarCarrito = () => {
+        setCarrito([])
+    }
+
     return (
         <>
             <Header cantidadProductos={contarProductos(carrito)} />
             <main>
                 {/* Las páginas reciben el carrito y sus funciones con useOutletContext */}
-                <Outlet context={{ carrito, agregarProducto, quitarProducto }} />
+                <Outlet context={{ carrito, agregarProducto, quitarProducto, vaciarCarrito }} />
             </main>
             <Footer />
         </>
