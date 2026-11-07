@@ -1,0 +1,84 @@
+@use 'variables' as *;
+
+.carrito-columnas {
+    align-items: start;
+    margin-top: 1.5rem;
+}
+
+// Lista de productos del pedido
+.carrito-lista {
+    margin: 1rem 0;
+}
+
+.carrito-item {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed $color-borde;
+
+    strong {
+        color: $color-primario;
+        min-width: 80px;
+        text-align: right;
+    }
+
+    // En celular el subtotal pasa abajo, para que no se apriete el nombre
+    @media (max-width: $mobile) {
+        grid-template-columns: 1fr auto;
+
+        strong {
+            grid-column: 1 / -1;
+        }
+    }
+}
+
+.carrito-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.25rem;
+    font-size: 1.3rem;
+    color: $color-chocolate;
+}
+
+.carrito-seguir {
+    margin-top: 1.25rem;
+}
+
+// Pedido vacío
+.carrito-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+// Pantalla de pedido enviado
+.pedido-enviado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 560px;
+    margin: 1.5rem auto 0;
+    text-align: center;
+}
+
+.pedido-enviado-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: $color-crema;
+    color: $color-primario;
+
+    .material-symbols-rounded {
+        font-size: 2.2rem;
+    }
+}

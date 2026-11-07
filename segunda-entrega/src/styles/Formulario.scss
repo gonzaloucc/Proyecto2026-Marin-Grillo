@@ -1,0 +1,87 @@
+@use 'variables' as *;
+
+// Estilos compartidos por los formularios (reserva y datos de retiro del pedido)
+.panel-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: $color-chocolate;
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 0.65rem 0.9rem;
+        border-radius: 8px;
+        border: 1px solid $color-borde;
+        background-color: $color-fondo;
+        color: $color-chocolate;
+        transition: $transicion;
+
+        &:focus {
+            outline: none;
+            border-color: $color-primario;
+            box-shadow: 0 0 0 3px $color-foco;
+            background-color: $color-blanco;
+        }
+
+        // Campo con error (React le pone aria-invalid="true")
+        &[aria-invalid='true'] {
+            border-color: $color-error-texto;
+            background-color: $color-error-fondo;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+    }
+}
+
+.campos-fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media (max-width: $mobile) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.campo-ayuda {
+    font-size: 0.8rem;
+    color: $color-kicker;
+}
+
+.campo-error {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $color-error-texto;
+
+    // Si no hay mensaje, el párrafo no ocupa lugar
+    &:empty {
+        display: none;
+    }
+}
+
+.formulario-boton {
+    margin-top: 0.5rem;
+}

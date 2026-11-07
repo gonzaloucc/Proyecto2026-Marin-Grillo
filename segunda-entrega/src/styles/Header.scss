@@ -86,6 +86,22 @@
     }
 }
 
+// Cantidad de productos en el pedido (arriba de la bolsa)
+.contador {
+    @include centrar-flex;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 10px;
+    background-color: $color-primario;
+    color: $color-blanco;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
 .cabecera-boton {
     font-size: 0.95rem;
     padding: 0.6rem 1.4rem;

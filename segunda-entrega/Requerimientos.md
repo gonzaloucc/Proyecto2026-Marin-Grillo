@@ -2,8 +2,8 @@
 
 
 ## Sobre Readme.md
-- [ ] Actualizar el readme.md para incluir pasos de ejecución del proyecto
-- [ ] Actualizar tecnologías usadas
+- [x] Actualizar el readme.md para incluir pasos de ejecución del proyecto
+- [x] Actualizar tecnologías usadas
 
 ## Sobre Package
 - Incluir los scripts necesarios para ejecución del proyecto y mock de servicios
@@ -14,16 +14,16 @@
 - [x] Se debe emplear **Hooks**, useState, useEffect, useNavigate
 - [x] Se debe emplear **react-router-dom** para el enrutamiento a otras páginas
 - [x] Se debe emplear **outlet** para que un componente principal renderice componentes de rutas hijas.
-- [ ] La estructura del proyecto (carpetas) debe ser el correcto: components, pages, styles, api
+- [x] La estructura del proyecto (carpetas) debe ser el correcto: components, pages, styles, api
 - [x] Los **imports** deben ser usando con **alias**
 - [x] Emplear al menos una imagen en **/public** y una en **assets**
-- [ ] Validaciones en tiempo real con onChange + mensajes de error accesibles.
-- [ ] Crear al menos un componente genérico (ej: Button, Card, Input) y reutilizarlo en varias páginas.
-- [ ] Guardar algún dato en localStorage (ej: preferencias de tema o un carrito de compras).
+- [x] Validaciones en tiempo real con onChange + mensajes de error accesibles.
+- [x] Crear al menos un componente genérico (ej: Button, Card, Input) y reutilizarlo en varias páginas.
+- [x] Guardar algún dato en localStorage (ej: preferencias de tema o un carrito de compras).
 - [ ] NO se deben declarar atributos que NO son usados en ningún sitio
-- [ ] Emplear mock de al menos un servicio (db.json) y permitir al menos una de estas acciones: get/read, post/add, patch/update, delete
-- [ ] Emplear **fetch** y funciones **async**/**await** (en lugar del .then)
-- [ ] El formato de la información debería ser similar al siguiente:
+- [x] Emplear mock de al menos un servicio (db.json) y permitir al menos una de estas acciones: get/read, post/add, patch/update, delete
+- [x] Emplear **fetch** y funciones **async**/**await** (en lugar del .then)
+- [x] El formato de la información debería ser similar al siguiente:
 ````javascript
 "productos": [
     {

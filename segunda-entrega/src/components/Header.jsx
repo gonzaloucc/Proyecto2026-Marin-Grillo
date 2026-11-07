@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import '@styles/Header.scss'
 
-const Header = () => {
+const Header = ({ cantidadProductos }) => {
     const [menuAbierto, setMenuAbierto] = useState(false)
 
     const cerrarMenu = () => {
@@ -36,9 +36,10 @@ const Header = () => {
                 </nav>
 
                 <div className="cabecera-acciones">
-                    <Link to="/carrito" className="cabecera-carrito" aria-label="Ver mi pedido para llevar"
-                        onClick={cerrarMenu}>
+                    <Link to="/carrito" className="cabecera-carrito" onClick={cerrarMenu}
+                        aria-label={'Ver mi pedido para llevar (' + cantidadProductos + ' productos)'}>
                         <span className="material-symbols-rounded" aria-hidden="true">shopping_bag</span>
+                        {cantidadProductos > 0 ? <span className="contador">{cantidadProductos}</span> : null}
                     </Link>
                     <Link to="/#reservas" className="boton boton-primario cabecera-boton">
                         <span className="material-symbols-rounded icono" aria-hidden="true">calendar_month</span>
