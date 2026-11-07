@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '@styles/Formulario.scss'
 import '@styles/Reserva.scss'
 import { HORARIOS, obtenerLimitesFecha, validarCampo } from '@utils/reserva.js'
 
