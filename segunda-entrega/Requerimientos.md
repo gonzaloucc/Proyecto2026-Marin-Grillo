@@ -9,7 +9,7 @@
 - Incluir los scripts necesarios para ejecución del proyecto y mock de servicios
 - Las dependencias NO deben tener vulnerabilidades
 
-#### Sobre Reac
+#### Sobre React
 - [ ] Se debe emplear **Vite** para instalar **React**
 - [ ] Se debe emplear **Hooks**, useState, useEffect, useNavigate
 - [ ] Se debe emplear **react-router-dom** para el enrutamiento a otras páginas
