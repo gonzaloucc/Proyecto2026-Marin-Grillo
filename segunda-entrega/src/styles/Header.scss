@@ -1,0 +1,144 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.cabecera {
+    background-color: $color-fondo;
+    border-bottom: 1px solid $color-borde;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.cabecera-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.marca-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.marca-nombre {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-chocolate;
+}
+
+.navegacion {
+    ul {
+        display: flex;
+        gap: 2rem;
+    }
+
+    a {
+        font-weight: 600;
+        color: $color-chocolate;
+        padding: 0.4rem 0.2rem;
+        position: relative;
+
+        // Línea debajo del link al pasar el mouse y en la página actual
+        &:hover,
+        &.active {
+            color: $color-primario;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $color-primario;
+            }
+        }
+    }
+}
+
+.cabecera-acciones {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.cabecera-carrito {
+    @include centrar-flex;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid $color-borde;
+    color: $color-chocolate;
+
+    &:hover {
+        background-color: $color-arena;
+        border-color: $color-primario;
+    }
+}
+
+.cabecera-boton {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.4rem;
+}
+
+.menu-boton {
+    display: none;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    color: $color-chocolate;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid $color-borde;
+    border-radius: 6px;
+}
+
+// Menú hamburguesa en tablet y celular
+@media (max-width: $tablet) {
+    .menu-boton {
+        display: inline-flex;
+        order: 1;
+    }
+
+    .cabecera-acciones {
+        margin-left: auto;
+        margin-right: 0.75rem;
+    }
+
+    .cabecera-boton {
+        display: none;
+    }
+
+    .navegacion {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: $color-fondo;
+        border-bottom: 1px solid $color-borde;
+        padding: 1.5rem;
+        box-shadow: $sombra-media;
+
+        &.abierta {
+            display: block;
+        }
+
+        ul {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 * {
     margin: 0;
@@ -16,6 +17,17 @@ body {
     color: $color-texto;
     line-height: 1.6;
     font-size: 1.05rem;
+}
+
+// El main ocupa el espacio libre para que el footer quede siempre abajo
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    main {
+        flex: 1;
+    }
 }
 
 img {
@@ -40,4 +52,68 @@ textarea,
 button {
     font-family: inherit;
     font-size: 1rem;
+}
+
+// Estructura general
+.contenedor {
+    width: 90%;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+.seccion {
+    padding: 5rem 0;
+}
+
+.titulo-seccion {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: $color-chocolate;
+    line-height: 1.25;
+    margin-bottom: 0.8rem;
+}
+
+.icono {
+    font-size: 1.25em;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+// Botones
+.boton {
+    @include centrar-flex;
+    gap: 0.5rem;
+    padding: 0.75rem 1.6rem;
+    border-radius: $radio-boton;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: $transicion;
+}
+
+.boton-primario {
+    @include boton-variante($color-primario, $color-blanco, $color-primario-hover);
+}
+
+.boton-claro {
+    @include boton-variante($color-fondo, $color-primario, $color-blanco);
+}
+
+.boton-contorno {
+    @include boton-variante(transparent, $color-fondo, $color-linea-clara);
+    border-color: rgba(255, 250, 245, 0.6);
+}
+
+.boton-contorno-oscuro {
+    @include boton-variante(transparent, $color-primario, $color-primario);
+    border-color: $color-primario;
+
+    &:hover {
+        color: $color-blanco;
+    }
+}
+
+.boton-ancho {
+    width: 100%;
 }

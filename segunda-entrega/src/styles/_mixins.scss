@@ -1,0 +1,19 @@
+@use 'variables' as *;
+
+// Centra el contenido horizontal y verticalmente con flex
+@mixin centrar-flex {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Colores de un botón: fondo, texto y el hover que levanta el botón
+@mixin boton-variante($fondo, $texto, $fondo-hover) {
+    background-color: $fondo;
+    color: $texto;
+
+    &:hover {
+        background-color: $fondo-hover;
+        transform: translateY(-2px);
+    }
+}

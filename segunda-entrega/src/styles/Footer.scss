@@ -1,0 +1,71 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.pie {
+    background-color: $color-chocolate;
+    color: $color-fondo;
+    padding: 3.5rem 0 2rem 0;
+}
+
+.pie-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $color-linea-clara;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.pie-marca {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $color-fondo;
+    margin-bottom: 0.2rem;
+}
+
+.pie-texto {
+    color: $color-claro-suave;
+    font-size: 0.95rem;
+}
+
+.redes {
+    display: flex;
+    gap: 0.9rem;
+}
+
+.red-social {
+    @include centrar-flex;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: $color-claro;
+    border: 1px solid $color-borde-claro;
+
+    &:hover {
+        background-color: $color-primario;
+        color: $color-blanco;
+        border-color: $color-primario;
+        transform: translateY(-2px);
+    }
+}
+
+.red-icono {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.pie-derechos {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #baa39b;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: $mobile) {
+    .pie-contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+}
