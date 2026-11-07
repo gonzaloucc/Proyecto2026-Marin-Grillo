@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import '@styles/Home.scss'
 import Portada from '@components/Portada.jsx'
 import Card from '@components/Card.jsx'
+import Reserva from '@components/Reserva.jsx'
 import Atelier from '@components/Atelier.jsx'
 import Visitanos from '@components/Visitanos.jsx'
 import { cartasInicio } from '@data/cartasInicio.js'
@@ -38,15 +39,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section id="reservas" className="seccion seccion-crema">
-                <div className="contenedor">
-                    <p className="antetitulo">Tu mesa te espera</p>
-                    <h2 className="titulo-seccion">Hacé tu reserva.</h2>
-                    <p className="texto-seccion">Elegí el día, el horario y cuántas personas vienen. Nosotros nos
-                        encargamos de tener todo listo para tu pausa.</p>
-                </div>
-            </section>
-
+            <Reserva />
             <Atelier />
             <Visitanos />
         </>
