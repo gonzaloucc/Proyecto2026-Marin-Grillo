@@ -1,0 +1,160 @@
+@use 'variables' as *;
+
+// Portada
+.portada {
+    background: linear-gradient(rgba(56, 32, 30, 0.75), rgba(56, 32, 30, 0.85)),
+        url('@assets/home/portada-local.png') center / cover no-repeat;
+    color: $color-fondo;
+    padding: 7rem 0 6rem 0;
+}
+
+.portada-contenido {
+    max-width: 720px;
+    margin-left: max(5%, calc((100% - 1160px) / 2));
+}
+
+.portada-titulo {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0.6rem 0 1.2rem 0;
+    color: $color-fondo;
+}
+
+.portada-texto {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: $color-claro;
+    margin-bottom: 2rem;
+}
+
+.portada-botones {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+// Cards de la carta
+#cartas .tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.cartas-boton {
+    margin-top: 2.5rem;
+}
+
+// Tortas Atelier
+#atelier {
+    overflow: hidden;
+}
+
+.atelier-imagen-marco {
+    border-radius: $radio-tarjeta;
+    overflow: hidden;
+    box-shadow: $sombra-media;
+
+    &:hover .atelier-imagen {
+        transform: scale(1.03);
+    }
+}
+
+.atelier-imagen {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    transition: $transicion;
+}
+
+.atelier-contenido {
+    padding-left: 1rem;
+}
+
+.atelier-texto {
+    font-size: 1.2rem;
+    color: $color-claro;
+    line-height: 1.6;
+}
+
+.atelier-nota {
+    font-size: 1rem;
+    color: $color-claro-suave;
+    margin-bottom: 2rem;
+}
+
+// Visitanos
+.panel-visita {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.lista-horarios {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    li {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.95rem;
+        color: $color-texto;
+        padding-bottom: 0.3rem;
+        border-bottom: 1px dashed $color-borde;
+
+        span:first-child {
+            font-weight: 600;
+            color: $color-chocolate;
+        }
+    }
+}
+
+.mapa {
+    margin-top: 3rem;
+    border-radius: $radio-tarjeta;
+    overflow: hidden;
+    box-shadow: $sombra-suave;
+    border: 1px solid $color-borde;
+
+    iframe {
+        width: 100%;
+        height: 380px;
+        border: none;
+        display: block;
+    }
+}
+
+@media (max-width: $tablet) {
+    .portada-titulo {
+        font-size: 2.3rem;
+    }
+
+    .portada-contenido {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .portada-botones {
+        justify-content: center;
+    }
+
+    .atelier-contenido {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: $mobile) {
+    .portada-titulo {
+        font-size: 1.9rem;
+    }
+
+    .portada-botones {
+        flex-direction: column;
+
+        .boton {
+            width: 100%;
+        }
+    }
+}

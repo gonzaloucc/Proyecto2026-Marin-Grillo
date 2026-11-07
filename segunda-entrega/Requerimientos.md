@@ -9,14 +9,14 @@
 - Incluir los scripts necesarios para ejecución del proyecto y mock de servicios
 - Las dependencias NO deben tener vulnerabilidades
 
-#### Sobre Reac
-- [ ] Se debe emplear **Vite** para instalar **React**
-- [ ] Se debe emplear **Hooks**, useState, useEffect, useNavigate
-- [ ] Se debe emplear **react-router-dom** para el enrutamiento a otras páginas
-- [ ] Se debe emplear **outlet** para que un componente principal renderice componentes de rutas hijas.
+#### Sobre React
+- [x] Se debe emplear **Vite** para instalar **React**
+- [x] Se debe emplear **Hooks**, useState, useEffect, useNavigate
+- [x] Se debe emplear **react-router-dom** para el enrutamiento a otras páginas
+- [x] Se debe emplear **outlet** para que un componente principal renderice componentes de rutas hijas.
 - [ ] La estructura del proyecto (carpetas) debe ser el correcto: components, pages, styles, api
-- [ ] Los **imports** deben ser usando con **alias**
-- [ ] Emplear al menos una imagen en **/public** y una en **assets**
+- [x] Los **imports** deben ser usando con **alias**
+- [x] Emplear al menos una imagen en **/public** y una en **assets**
 - [ ] Validaciones en tiempo real con onChange + mensajes de error accesibles.
 - [ ] Crear al menos un componente genérico (ej: Button, Card, Input) y reutilizarlo en varias páginas.
 - [ ] Guardar algún dato en localStorage (ej: preferencias de tema o un carrito de compras).
@@ -50,9 +50,9 @@
 ````
 
 ## Sobre SASS
-- [ ] Todos los archivos de estilos deben encontrarse dentro de la carpeta **styles**
-- [ ] El import de los estilos debe realizarse empleando alias
-- [ ] Todos los estilos deben ser aplicados en archivos **.scss**
+- [x] Todos los archivos de estilos deben encontrarse dentro de la carpeta **styles**
+- [x] El import de los estilos debe realizarse empleando alias
+- [x] Todos los estilos deben ser aplicados en archivos **.scss**
 
 ## Sobre el proyecto general
 - [x] Todas las correcciones y mejoras (sugerencias) solicitadas durante el primer parcial deben estar corregidas.
