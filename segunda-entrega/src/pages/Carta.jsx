@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import '@styles/Carta.scss'
 import CategoriaCarta from '@components/CategoriaCarta.jsx'
+import FiltrosCarta from '@components/FiltrosCarta.jsx'
 import { getProductos } from '@api/productosApi.js'
 import { categoriasCarta, filtrosCarta } from '@data/categoriasCarta.js'
+import { filtrarProductos } from '@utils/carta.js'
 import { crearLinkWhatsApp } from '@utils/contacto.js'
 
 const Carta = () => {
@@ -36,29 +38,7 @@ const Carta = () => {
         fetchProductos()
     }, [])
 
-    // Aplica el filtro de categoría y la palabra del buscador
-    const filtrarProductos = () => {
-        const palabra = busqueda.toLowerCase().trim()
-        let lista = productos
-
-        if (filtro === 'comer') {
-            lista = lista.filter((producto) => producto.categoria === 'dulce' || producto.categoria === 'salado')
-        } else if (filtro !== 'todo') {
-            lista = lista.filter((producto) => producto.categoria === filtro)
-        }
-
-        if (palabra) {
-            lista = lista.filter((producto) =>
-                producto.nombre.toLowerCase().includes(palabra) ||
-                producto.descripcion.toLowerCase().includes(palabra) ||
-                producto.seccion.toLowerCase().includes(palabra)
-            )
-        }
-
-        return lista
-    }
-
-    const productosFiltrados = filtrarProductos()
+    const productosFiltrados = filtrarProductos(productos, filtro, busqueda)
 
     return (
         <section className="seccion seccion-arena carta-pagina">
@@ -69,32 +49,8 @@ const Carta = () => {
                     para compartir. Todo hecho en casa.</p>
                 <p className="nota">Algunos productos pueden variar según la disponibilidad del día.</p>
 
-                <div className="carta-filtros">
-                    <fieldset className="filtro-grupo">
-                        <legend className="filtro-titulo">Filtrar por categoría</legend>
-                        {filtrosCarta.map((opcion) => (
-                            <div key={opcion.valor}>
-                                <input type="radio" id={'filtro-' + opcion.valor} name="filtro" value={opcion.valor}
-                                    className="filtro-radio" checked={filtro === opcion.valor}
-                                    onChange={(e) => setFiltro(e.target.value)} />
-                                <label htmlFor={'filtro-' + opcion.valor} className="filtro-pastilla">
-                                    <span className="material-symbols-rounded icono"
-                                        aria-hidden="true">{opcion.icono}</span>
-                                    {opcion.texto}
-                                </label>
-                            </div>
-                        ))}
-                    </fieldset>
-
-                    <div className="buscador">
-                        <label htmlFor="buscador" className="filtro-titulo">Buscar en la carta</label>
-                        <div className="buscador-campo">
-                            <span className="material-symbols-rounded icono" aria-hidden="true">search</span>
-                            <input type="text" id="buscador" placeholder="Ej: pistacho, palta, brunch" maxLength="30"
-                                value={busqueda} onChange={(e) => setBusqueda(e.target.value)} />
-                        </div>
-                    </div>
-                </div>
+                <FiltrosCarta opciones={filtrosCarta} filtro={filtro} onCambiarFiltro={setFiltro}
+                    busqueda={busqueda} onCambiarBusqueda={setBusqueda} />
 
                 <div aria-live="polite">
                     {cargando ? <p className="carta-mensaje">Cargando la carta...</p> : null}

@@ -18,8 +18,8 @@
 - [x] Los **imports** deben ser usando con **alias**
 - [x] Emplear al menos una imagen en **/public** y una en **assets**
 - [x] Validaciones en tiempo real con onChange + mensajes de error accesibles.
-- [ ] Crear al menos un componente genérico (ej: Button, Card, Input) y reutilizarlo en varias páginas.
-- [ ] Guardar algún dato en localStorage (ej: preferencias de tema o un carrito de compras).
+- [x] Crear al menos un componente genérico (ej: Button, Card, Input) y reutilizarlo en varias páginas.
+- [x] Guardar algún dato en localStorage (ej: preferencias de tema o un carrito de compras).
 - [ ] NO se deben declarar atributos que NO son usados en ningún sitio
 - [x] Emplear mock de al menos un servicio (db.json) y permitir al menos una de estas acciones: get/read, post/add, patch/update, delete
 - [x] Emplear **fetch** y funciones **async**/**await** (en lugar del .then)

@@ -1,12 +1,20 @@
 import { formatearPrecio } from '@utils/formato.js'
+import { LIMITE_CANTIDAD_PRODUCTO } from '@utils/carrito.js'
 
 /**
  * Muestra una categoría de la carta con sus productos agrupados por sección.
  * Si la categoría no tiene productos (por los filtros), no muestra nada.
+ * En el Pedido recibe el carrito y las funciones para agregar/quitar, y muestra los botones.
  */
-const CategoriaCarta = ({ categoria, productos }) => {
+const CategoriaCarta = ({ categoria, productos, carrito, onAgregar, onQuitar }) => {
     if (productos.length === 0) {
         return null
+    }
+
+    // Cuántas unidades de un producto hay en el carrito
+    const obtenerCantidad = (id) => {
+        const item = carrito.find((itemCarrito) => itemCarrito.id === id)
+        return item !== undefined ? item.cantidad : 0
     }
 
     // Secciones de la categoría sin repetir (ej: Café, Cafés fríos, Refrescantes...)
@@ -40,6 +48,31 @@ const CategoriaCarta = ({ categoria, productos }) => {
                                         <p className="carta-detalle">{producto.descripcion}</p>
                                     </div>
                                     <strong>{formatearPrecio(producto.precio)}</strong>
+
+                                    {onAgregar ? (
+                                        <div className="carrito-cantidad">
+                                            {obtenerCantidad(producto.id) > 0 ? (
+                                                <>
+                                                    <button type="button" className="boton-cantidad"
+                                                        onClick={() => onQuitar(producto.id)}
+                                                        aria-label={'Quitar una unidad de ' + producto.nombre}>
+                                                        <span className="material-symbols-rounded"
+                                                            aria-hidden="true">remove</span>
+                                                    </button>
+                                                    <span>{obtenerCantidad(producto.id)}</span>
+                                                </>
+                                            ) : null}
+                                            <button type="button" className="boton-agregar"
+                                                onClick={() => onAgregar(producto)}
+                                                disabled={obtenerCantidad(producto.id) >= LIMITE_CANTIDAD_PRODUCTO}
+                                                aria-label={'Agregar ' + producto.nombre + ' al pedido'}
+                                                title={obtenerCantidad(producto.id) >= LIMITE_CANTIDAD_PRODUCTO
+                                                    ? 'Límite máximo alcanzado (' + LIMITE_CANTIDAD_PRODUCTO + ' unidades)'
+                                                    : 'Agregar ' + producto.nombre + ' al pedido'}>
+                                                <span className="material-symbols-rounded" aria-hidden="true">add</span>
+                                            </button>
+                                        </div>
+                                    ) : null}
                                 </li>
                             ))}
                         </ul>
