@@ -13,6 +13,7 @@ export default defineConfig({
       '@assets': path.resolve(import.meta.dirname, './src/assets'),
       '@api': path.resolve(import.meta.dirname, './src/api'),
       '@utils': path.resolve(import.meta.dirname, './src/utils'),
+      '@data': path.resolve(import.meta.dirname, './src/data'),
     },
   },
 })
