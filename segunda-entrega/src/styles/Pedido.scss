@@ -1,0 +1,116 @@
+@use 'variables' as *;
+
+// Pasos del take away
+.pasos-pedido {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+
+    li {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.9rem;
+        border-radius: $radio-boton;
+        background-color: $color-crema;
+        color: $color-chocolate;
+        font-size: 0.95rem;
+    }
+}
+
+// Botones para sumar y restar unidades
+.carrito-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+}
+
+.boton-agregar,
+.boton-cantidad {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: $transicion;
+
+    // Cuando se llega al límite de unidades el botón queda deshabilitado
+    &:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+        transform: none;
+    }
+}
+
+.boton-agregar {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    background-color: $color-primario;
+    color: $color-blanco;
+
+    &:hover:not(:disabled) {
+        background-color: $color-primario-hover;
+        transform: scale(1.08);
+    }
+
+    // Pseudoclase :active para dar respuesta al tocar el botón
+    &:active:not(:disabled) {
+        transform: scale(0.92);
+    }
+}
+
+.boton-cantidad {
+    width: 30px;
+    height: 30px;
+    border: 1px solid $color-borde;
+    background-color: $color-fondo;
+    color: $color-chocolate;
+
+    &:hover:not(:disabled) {
+        border-color: $color-primario;
+        color: $color-primario;
+    }
+}
+
+// Barra con el resumen del pedido (queda fija abajo mientras se elige)
+.resumen-pedido {
+    position: sticky;
+    bottom: 1rem;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: $radio-tarjeta;
+    background-color: $color-chocolate;
+    color: $color-fondo;
+    box-shadow: $sombra-media;
+    animation: aparecer-resumen 0.4s ease;
+
+    p {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+// Se ejecuta cada vez que aparece la barra
+@keyframes aparecer-resumen {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
