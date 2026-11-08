@@ -20,7 +20,7 @@
 - [x] Validaciones en tiempo real con onChange + mensajes de error accesibles.
 - [x] Crear al menos un componente genérico (ej: Button, Card, Input) y reutilizarlo en varias páginas.
 - [x] Guardar algún dato en localStorage (ej: preferencias de tema o un carrito de compras).
-- [ ] NO se deben declarar atributos que NO son usados en ningún sitio
+- [x] NO se deben declarar atributos que NO son usados en ningún sitio
 - [x] Emplear mock de al menos un servicio (db.json) y permitir al menos una de estas acciones: get/read, post/add, patch/update, delete
 - [x] Emplear **fetch** y funciones **async**/**await** (en lugar del .then)
 - [x] El formato de la información debería ser similar al siguiente:
@@ -56,8 +56,8 @@
 
 ## Sobre el proyecto general
 - [x] Todas las correcciones y mejoras (sugerencias) solicitadas durante el primer parcial deben estar corregidas.
-- [ ] No debe haber errores presentes en el código (realizar *Code* > *Inspect Code* para verificar que no haya errores)
-- [ ] No deben existir imports innecesarios
+- [x] No debe haber errores presentes en el código (realizar *Code* > *Inspect Code* para verificar que no haya errores)
+- [x] No deben existir imports innecesarios
 
 #### Sobre las Correcciones
 - [ ] Se corregirá el proyecto con el último commit realizado en Github hasta las 23:59 del día anterior a la fecha de entrega

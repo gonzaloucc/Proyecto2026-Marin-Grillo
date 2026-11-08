@@ -1,5 +1,5 @@
-export const DIAS_MAXIMOS_RESERVA = 14
-export const PERSONAS_MAXIMAS = 20
+const DIAS_MAXIMOS_RESERVA = 14
+const PERSONAS_MAXIMAS = 20
 export const HORARIOS = ['08:30', '10:00', '12:00', '16:00', '18:00', '20:00']
 
 /**
@@ -7,7 +7,7 @@ export const HORARIOS = ['08:30', '10:00', '12:00', '16:00', '18:00', '20:00']
  * @param {Date} fecha - Fecha que se quiere convertir.
  * @returns {string} Fecha en formato AAAA-MM-DD.
  */
-export const formatearFechaInput = (fecha) => {
+const formatearFechaInput = (fecha) => {
     const anio = fecha.getFullYear()
     const mes = String(fecha.getMonth() + 1).padStart(2, '0')
     const dia = String(fecha.getDate()).padStart(2, '0')
